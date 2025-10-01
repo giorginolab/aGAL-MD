@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+if [[ $# -lt 1 ]]; then
+   echo "Usage: $0 <NUM>"
+   echo "Will submit <NUM> chained jobs for acemd simulation"
+   exit
+fi
+
+n=$1
+i=1
+
+jid=$(sbatch --parsable ../../../functions/sbatch_acemd)
+echo Scheduled $jid: sbatch ../../../functions/sbatch_acemd
+
+while [[ $i -lt $n ]]; do
+    ojid=$jid
+    jid=$(sbatch --parsable --dependency=afternotok:$ojid ../../../functions/sbatch_acemd)
+    echo Scheduled $jid: sbatch --dependency=afternotok:$ojid ../../../functions/sbatch_acemd
+    i=$((i+1))
+done
+
+echo " "
+echo "Done. This is your queue:"
+squeue -l -u $USER
+#for dir in *_2; do [ -d "$dir/production" ] || { echo "Skipping $dir: no production folder"; continue; }; echo "Entering $dir/production"; (cd "$dir/production" && sbatch ../../../functions/sbatch_many 7); done
