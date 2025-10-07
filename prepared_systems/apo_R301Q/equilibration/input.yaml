@@ -1,0 +1,27 @@
+barostat: true
+barostatconstratio: false
+boxsize:
+- 135.67300415039062
+- 109.76899719238281
+- 141.61700439453125
+coordinates: structure.pdb
+extforces:
+- sel: protein and name CA
+  setpoints:
+  - 1@0
+  - 0@6250000
+  type: positionalRestraint
+- sel: protein and noh and not name CA
+  setpoints:
+  - 0.1@0
+  - 0@6250000
+  type: positionalRestraint
+minimize: 1000
+parameters:
+- parameters.prm
+restart: true
+run: 50 ns
+structure: structure.psf
+thermostat: true
+thermostattemperature: 300
+velocities: 300

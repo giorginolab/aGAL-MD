@@ -1,0 +1,873 @@
+psfgen) clearing structure, topology, and aliases
+psfgen) reading topology file topologies/0.top_all36_prot.rtf
+
+psfgen) >>>>>>>>CHARMM36 All-Hydrogen Topology File for Proteins <<<<<<
+psfgen) >>>>> Includes phi, psi cross term map (CMAP) correction <<<<<<<
+psfgen) >>>>>>>>>>>>>>>>>>>>>>>>>> May 2011 <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+psfgen)  All comments to the CHARMM web site: www.charmm.org
+psfgen)              parameter set discussion forum
+psfgen) 
+psfgen) Created by CHARMM version 36 1
+psfgen) cross-term entries present in topology definitions
+psfgen) reading topology file topologies/1.top_all36_carb.rtf
+
+psfgen)  $Id: top_allxx_sugar.inp,v 1.106 2014/08/19 19:07:43 alex Exp $
+psfgen) >>>>>>>>>>>> All-hydrogen topologies used in the <<<<<<<<<<<<<<<<
+psfgen) >>>>> development of the CHARMM carbohydrate  force field<<<<<<<<
+psfgen) >>>>>>>>>>>>>>>>>>>>>>>>> June 2009 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+psfgen) >>>>>>>> Direct comments to Alexander D. MacKerell Jr. <<<<<<<<<<
+psfgen) >>>>>>>>>> via the CHARMM web site: www.charmm.org <<<<<<<<<<<<<<
+psfgen) >>>>>>>>>>>>>>> parameter set discussion forum <<<<<<<<<<<<<<<<<<
+psfgen) 
+psfgen) Created by CHARMM version 32 1
+psfgen) reading topology file topologies/2.top_water_ions.rtf
+
+psfgen)  Topology for water and ions
+psfgen) 
+psfgen) Created by CHARMM version 31 1
+psfgen) reading topology file topologies/3.top_all36_cgenff.rtf
+
+psfgen)   --------------------------------------------------------------------------  *
+psfgen)           CGenFF: Topology for the Charmm General Force Field v. 4.6          *
+psfgen)                     for Small Molecule Drug Design                            *
+psfgen)   --------------------------------------------------------------------------  *
+psfgen) 
+psfgen) Created by CHARMM version 36 1
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31058: LONEPAIR COLINEAR LP CL C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31095: LONEPAIR COLINEAR LP CL CG  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31182: LONEPAIR COLINEAR LP CL5 C4  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31259: LONEPAIR COLINEAR LP5 CL5 C5  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31260: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31294: LONEPAIR COLINEAR LP4 CL4 C4  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31295: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31330: LONEPAIR COLINEAR LP3 CL3 C3  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31331: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31367: LONEPAIR COLINEAR LP4 CL4 C4  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31368: LONEPAIR COLINEAR LP5 CL5 C5  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31369: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31405: LONEPAIR COLINEAR LP3 CL3 C3  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31406: LONEPAIR COLINEAR LP5 CL5 C5  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31407: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31442: LONEPAIR COLINEAR LP2 CL2 C2  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31443: LONEPAIR COLINEAR LP4 CL4 C4  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31444: LONEPAIR COLINEAR LP6 CL6 C6  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31477: LONEPAIR COLINEAR LP BR C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31511: LONEPAIR COLINEAR LP5 BR5 C5  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31512: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31546: LONEPAIR COLINEAR LP4 BR4 C4  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31547: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31581: LONEPAIR COLINEAR LP3 BR3 C3  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31582: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31617: LONEPAIR COLINEAR LP4 BR4 C4  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31618: LONEPAIR COLINEAR LP5 BR5 C5  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31619: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31654: LONEPAIR COLINEAR LP3 BR3 C3  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31655: LONEPAIR COLINEAR LP5 BR5 C5  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31656: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31691: LONEPAIR COLINEAR LP2 BR2 C2  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31692: LONEPAIR COLINEAR LP4 BR4 C4  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31693: LONEPAIR COLINEAR LP6 BR6 C6  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31726: LONEPAIR COLINEAR LP I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31760: LONEPAIR COLINEAR LP5 I5 C5  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31761: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31795: LONEPAIR COLINEAR LP4 I4 C4  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31796: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31830: LONEPAIR COLINEAR LP3 I3 C3  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31831: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31866: LONEPAIR COLINEAR LP4 I4 C4  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31867: LONEPAIR COLINEAR LP5 I5 C5  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31868: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31903: LONEPAIR COLINEAR LP3 I3 C3  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31904: LONEPAIR COLINEAR LP5 I5 C5  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31905: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31940: LONEPAIR COLINEAR LP2 I2 C2  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31941: LONEPAIR COLINEAR LP4 I4 C4  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31942: LONEPAIR COLINEAR LP6 I6 C6  DIST 2.200
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31967: LONEPAIR COLINEAR LP CL CE1  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 31983: LONEPAIR COLINEAR LP CL CP  DIST 1.640
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 32020: LONEPAIR COLINEAR LP BR2 C12  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 32073: LONEPAIR COLINEAR LP BR2 C12  DIST 1.890
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53130: LONEPAIR COLINEAR LP1    CLE    CE2    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53180: LONEPAIR COLINEAR LP1    CLD    CD1    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53235: LONEPAIR COLINEAR LP1    CL     CE1    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53340: LONEPAIR COLINEAR LP1    BR     CD     DIST 1.8900 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53393: LONEPAIR COLINEAR LP1    CLD    CD1    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53394: LONEPAIR COLINEAR LP2    CLZ    CZ     DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53443: LONEPAIR COLINEAR LP1    CLG    CG2    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53500: LONEPAIR COLINEAR LP1    CL     CZ2    DIST 1.6400 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53614: LONEPAIR COLINEAR LP1    BR1    CE1    DIST 1.8900 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53615: LONEPAIR COLINEAR LP2    BR2    CE2    DIST 1.8900 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53672: LONEPAIR COLINEAR LP1    IE1    CE1    DIST 2.2000 SCAL 0.0
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LONEPAIR.  Line 53793: LONEPAIR COLINEAR LP1    CL2    CG2    DIST 1.6400 SCAL 0.0
+
+psfgen) reading topology file topologies/4.top_DGJ.rtf
+
+psfgen)  Topologies generated by
+psfgen)  CHARMM General Force Field (CGenFF) program version 4.0
+psfgen) 
+psfgen) Created by CHARMM version 36 1
+psfgen) reading topology file topologies/5.top_all36_carb_glycopeptide.rtf
+
+psfgen)  Topology for glycopeptide linkages
+psfgen)  
+psfgen) Created by CHARMM version 32 1
+psfgen) aliasing residue G to GUA
+psfgen) aliasing residue C to CYT
+psfgen) aliasing residue A to ADE
+psfgen) aliasing residue T to THY
+psfgen) aliasing residue U to URA
+psfgen) aliasing residue GUA atom O5* to O5'
+psfgen) aliasing residue GUA atom C5* to C5'
+psfgen) aliasing residue GUA atom O4* to O4'
+psfgen) aliasing residue GUA atom C4* to C4'
+psfgen) aliasing residue GUA atom C3* to C3'
+psfgen) aliasing residue GUA atom O3* to O3'
+psfgen) aliasing residue GUA atom C2* to C2'
+psfgen) aliasing residue GUA atom O2* to O2'
+psfgen) aliasing residue GUA atom C1* to C1'
+psfgen) aliasing residue CYT atom O5* to O5'
+psfgen) aliasing residue CYT atom C5* to C5'
+psfgen) aliasing residue CYT atom O4* to O4'
+psfgen) aliasing residue CYT atom C4* to C4'
+psfgen) aliasing residue CYT atom C3* to C3'
+psfgen) aliasing residue CYT atom O3* to O3'
+psfgen) aliasing residue CYT atom C2* to C2'
+psfgen) aliasing residue CYT atom O2* to O2'
+psfgen) aliasing residue CYT atom C1* to C1'
+psfgen) aliasing residue ADE atom O5* to O5'
+psfgen) aliasing residue ADE atom C5* to C5'
+psfgen) aliasing residue ADE atom O4* to O4'
+psfgen) aliasing residue ADE atom C4* to C4'
+psfgen) aliasing residue ADE atom C3* to C3'
+psfgen) aliasing residue ADE atom O3* to O3'
+psfgen) aliasing residue ADE atom C2* to C2'
+psfgen) aliasing residue ADE atom O2* to O2'
+psfgen) aliasing residue ADE atom C1* to C1'
+psfgen) aliasing residue THY atom O5* to O5'
+psfgen) aliasing residue THY atom C5* to C5'
+psfgen) aliasing residue THY atom O4* to O4'
+psfgen) aliasing residue THY atom C4* to C4'
+psfgen) aliasing residue THY atom C3* to C3'
+psfgen) aliasing residue THY atom O3* to O3'
+psfgen) aliasing residue THY atom C2* to C2'
+psfgen) aliasing residue THY atom O2* to O2'
+psfgen) aliasing residue THY atom C1* to C1'
+psfgen) aliasing residue URA atom O5* to O5'
+psfgen) aliasing residue URA atom C5* to C5'
+psfgen) aliasing residue URA atom O4* to O4'
+psfgen) aliasing residue URA atom C4* to C4'
+psfgen) aliasing residue URA atom C3* to C3'
+psfgen) aliasing residue URA atom O3* to O3'
+psfgen) aliasing residue URA atom C2* to C2'
+psfgen) aliasing residue URA atom O2* to O2'
+psfgen) aliasing residue URA atom C1* to C1'
+psfgen) aliasing residue ILE atom CD1 to CD
+psfgen) aliasing residue SER atom HG to HG1
+psfgen) aliasing residue HIS to HSD
+psfgen) aliasing residue HEM to HEME
+psfgen) aliasing residue HEME atom N A to NA
+psfgen) aliasing residue HEME atom N B to NB
+psfgen) aliasing residue HEME atom N C to NC
+psfgen) aliasing residue HEME atom N D to ND
+psfgen) aliasing residue HOH to TIP3
+psfgen) aliasing residue TIP3 atom O to OH2
+psfgen) aliasing residue K to POT
+psfgen) aliasing residue K atom K to POT
+psfgen) aliasing residue ICL to CLA
+psfgen) aliasing residue ICL atom CL to CLA
+psfgen) aliasing residue INA to SOD
+psfgen) aliasing residue INA atom NA to SOD
+psfgen) aliasing residue CA to CAL
+psfgen) aliasing residue CA atom CA to CAL
+psfgen) aliasing residue ZN to ZN2
+psfgen) aliasing residue FE2 to Fe2p
+psfgen) aliasing residue Fe2p atom FE to Fe2p
+psfgen) aliasing residue LYS atom 1HZ to HZ1
+psfgen) aliasing residue LYS atom 2HZ to HZ2
+psfgen) aliasing residue LYS atom 3HZ to HZ3
+psfgen) aliasing residue ARG atom 1HH1 to HH11
+psfgen) aliasing residue ARG atom 2HH1 to HH12
+psfgen) aliasing residue ARG atom 1HH2 to HH21
+psfgen) aliasing residue ARG atom 2HH2 to HH22
+psfgen) aliasing residue ASN atom 1HD2 to HD21
+psfgen) aliasing residue ASN atom 2HD2 to HD22
+psfgen) aliasing residue LI to LIT
+psfgen) aliasing residue NA to SOD
+psfgen) aliasing residue K to POT
+psfgen) aliasing residue CA to CAL
+psfgen) aliasing residue ZN to ZN2
+psfgen) aliasing residue CL to CLA
+psfgen) aliasing residue RB to RUB
+psfgen) aliasing residue CD to CD2
+psfgen) aliasing residue CS to CES
+psfgen) aliasing residue BA to BAR
+psfgen) aliasing residue NI to Ni2p
+psfgen) aliasing residue HG to Hg2p
+psfgen) aliasing residue AR0 to ARG
+psfgen) aliasing residue GLH to GLU
+psfgen) aliasing residue ASH to ASP
+psfgen) aliasing residue LYN to LYS
+psfgen) aliasing residue HIE to HSE
+psfgen) aliasing residue HID to HSD
+psfgen) aliasing residue HIP to HSP
+psfgen) aliasing residue CYX to CYS
+psfgen) aliasing residue CYM to CYS
+psfgen) aliasing residue WAT to TIP3
+psfgen) aliasing residue ALA atom H to HN
+psfgen) aliasing residue ARG atom H to HN
+psfgen) aliasing residue ARG atom HB3 to HB1
+psfgen) aliasing residue ARG atom HG3 to HG1
+psfgen) aliasing residue ARG atom HD3 to HD1
+psfgen) aliasing residue ASP atom H to HN
+psfgen) aliasing residue ASP atom HB3 to HB1
+psfgen) aliasing residue ASN atom H to HN
+psfgen) aliasing residue ASN atom HB3 to HB1
+psfgen) aliasing residue CYS atom H to HN
+psfgen) aliasing residue CYS atom HB3 to HB1
+psfgen) aliasing residue GLU atom H to HN
+psfgen) aliasing residue GLU atom HB3 to HB1
+psfgen) aliasing residue GLU atom HG3 to HG1
+psfgen) aliasing residue GLN atom H to HN
+psfgen) aliasing residue GLN atom HB3 to HB1
+psfgen) aliasing residue GLN atom HG3 to HG1
+psfgen) aliasing residue GLY atom H to HN
+psfgen) aliasing residue GLY atom HA3 to HA1
+psfgen) aliasing residue HIS atom H to HN
+psfgen) aliasing residue HIS atom HB3 to HB1
+psfgen) aliasing residue ILE atom H to HN
+psfgen) aliasing residue ILE atom HG13 to HG11
+psfgen) aliasing residue ILE atom HD11 to HD1
+psfgen) aliasing residue ILE atom HD12 to HD2
+psfgen) aliasing residue ILE atom HD13 to HD3
+psfgen) aliasing residue LEU atom H to HN
+psfgen) aliasing residue LEU atom HB3 to HB1
+psfgen) aliasing residue LYS atom H to HN
+psfgen) aliasing residue LYS atom HB3 to HB1
+psfgen) aliasing residue LYS atom HG3 to HG1
+psfgen) aliasing residue LYS atom HD3 to HD1
+psfgen) aliasing residue LYS atom HE3 to HE1
+psfgen) aliasing residue MET atom H to HN
+psfgen) aliasing residue MET atom HB3 to HB1
+psfgen) aliasing residue MET atom HG3 to HG1
+psfgen) aliasing residue PHE atom H to HN
+psfgen) aliasing residue PHE atom HB3 to HB1
+psfgen) aliasing residue PRO atom H2 to HT2
+psfgen) aliasing residue PRO atom H3 to HT1
+psfgen) aliasing residue PRO atom HB3 to HB1
+psfgen) aliasing residue PRO atom HG3 to HG1
+psfgen) aliasing residue PRO atom HD3 to HD1
+psfgen) aliasing residue SER atom H to HN
+psfgen) aliasing residue SER atom HB3 to HB1
+psfgen) aliasing residue THR atom H to HN
+psfgen) aliasing residue TRP atom H to HN
+psfgen) aliasing residue TRP atom HB3 to HB1
+psfgen) aliasing residue TYR atom H to HN
+psfgen) aliasing residue TYR atom HB3 to HB1
+psfgen) aliasing residue VAL atom H to HN
+psfgen) aliasing residue NAG to BGLCNA
+psfgen) aliasing residue BMA to BMAN
+psfgen) aliasing residue GLA to AGAL
+psfgen) aliasing residue GAL to BGAL
+psfgen) aliasing residue MAN to AMAN
+psfgen) aliasing residue FUC to AFUC
+psfgen) aliasing residue FUL to BFUC
+psfgen) building segment P0
+psfgen) reading residues from pdb file segments/segmentP0.pdb
+psfgen) extracted 390 residues from pdb file
+psfgen) setting patch for first residue to ACE
+psfgen) setting patch for last residue to CT3
+Info: generating structure...
+psfgen) Info: skipping improper N-C-CA-HN at beginning of segment.
+psfgen) Info: skipping cross-term C-N-CA-C-N-CA-C-N at beginning of segment.
+psfgen) Info: skipping conformation C-N-CA-C at beginning of segment.
+psfgen) Info: skipping conformation C-CA-N-HN at beginning of segment.
+psfgen) Info: skipping bond C-N at end of segment.
+psfgen) Info: skipping improper C-CA-N-O at end of segment.
+psfgen) Info: skipping cross-term C-N-CA-C-N-CA-C-N at end of segment.
+psfgen) Info: skipping conformation CA-C-N-CA at end of segment.
+psfgen) Info: skipping conformation N-CA-C-O at end of segment.
+psfgen) Info: skipping conformation N-CA-C-N at end of segment.
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP0.pdb for segment P0
+psfgen) Warning: failed to set coordinate for atom H1	 LEU:32	  P0
+psfgen) Warning: failed to set coordinate for atom H2	 LEU:32	  P0
+psfgen) Warning: failed to set coordinate for atom H3	 LEU:32	  P0
+psfgen) Warning: failed to set coordinate for atom H	 HIE:46	  P0
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:46	  P0
+psfgen) Warning: failed to set coordinate for atom HE2	 GLH:48	  P0
+psfgen) Warning: failed to set coordinate for atom HG	 CYS:90	  P0
+psfgen) Warning: failed to set coordinate for atom HD2	 ASH:136	  P0
+psfgen) Warning: failed to set coordinate for atom HG	 CYS:174	  P0
+psfgen) Warning: failed to set coordinate for atom H	 HIE:186	  P0
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:186	  P0
+psfgen) Warning: failed to set coordinate for atom HE2	 GLH:203	  P0
+psfgen) Warning: failed to set coordinate for atom H	 HIE:225	  P0
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:225	  P0
+psfgen) Warning: failed to set coordinate for atom OXT	 MET:421	  P0
+psfgen) building segment P1
+psfgen) reading residues from pdb file segments/segmentP1.pdb
+psfgen) extracted 391 residues from pdb file
+psfgen) setting patch for first residue to ACE
+psfgen) setting patch for last residue to CT3
+Info: generating structure...
+psfgen) Info: skipping improper N-C-CA-HN at beginning of segment.
+psfgen) Info: skipping cross-term C-N-CA-C-N-CA-C-N at beginning of segment.
+psfgen) Info: skipping conformation C-N-CA-C at beginning of segment.
+psfgen) Info: skipping conformation C-CA-N-HN at beginning of segment.
+psfgen) Info: skipping bond C-N at end of segment.
+psfgen) Info: skipping improper C-CA-N-O at end of segment.
+psfgen) Info: skipping cross-term C-N-CA-C-N-CA-C-N at end of segment.
+psfgen) Info: skipping conformation CA-C-N-CA at end of segment.
+psfgen) Info: skipping conformation N-CA-C-O at end of segment.
+psfgen) Info: skipping conformation N-CA-C-N at end of segment.
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP1.pdb for segment P1
+psfgen) Warning: failed to set coordinate for atom H1	 LEU:32	  P1
+psfgen) Warning: failed to set coordinate for atom H2	 LEU:32	  P1
+psfgen) Warning: failed to set coordinate for atom H3	 LEU:32	  P1
+psfgen) Warning: failed to set coordinate for atom H	 HIE:46	  P1
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:46	  P1
+psfgen) Warning: failed to set coordinate for atom HE2	 GLH:48	  P1
+psfgen) Warning: failed to set coordinate for atom HG	 CYS:90	  P1
+psfgen) Warning: failed to set coordinate for atom HD2	 ASH:136	  P1
+psfgen) Warning: failed to set coordinate for atom HG	 CYS:174	  P1
+psfgen) Warning: failed to set coordinate for atom H	 HIE:186	  P1
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:186	  P1
+psfgen) Warning: failed to set coordinate for atom HE2	 GLH:203	  P1
+psfgen) Warning: failed to set coordinate for atom H	 HIE:225	  P1
+psfgen) Warning: failed to set coordinate for atom HB3	 HIE:225	  P1
+psfgen) Warning: failed to set coordinate for atom OXT	 GLN:422	  P1
+psfgen) building segment P2
+psfgen) reading residues from pdb file segments/segmentP2.pdb
+psfgen) extracted 5 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP2.pdb for segment P2
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:2	  P2
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:3	  P2
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:4	  P2
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:4	  P2
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:5	  P2
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:5	  P2
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:5	  P2
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:5	  P2
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:6	  P2
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:6	  P2
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P2
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P2
+psfgen) building segment P3
+psfgen) reading residues from pdb file segments/segmentP3.pdb
+psfgen) extracted 5 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP3.pdb for segment P3
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:2	  P3
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:3	  P3
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:4	  P3
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:4	  P3
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:5	  P3
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:5	  P3
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:5	  P3
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:5	  P3
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:6	  P3
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:6	  P3
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P3
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P3
+psfgen) building segment P5
+psfgen) reading residues from pdb file segments/segmentP5.pdb
+psfgen) extracted 5 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP5.pdb for segment P5
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:2	  P5
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:3	  P5
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:4	  P5
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:4	  P5
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:5	  P5
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:5	  P5
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:5	  P5
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:5	  P5
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:6	  P5
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:6	  P5
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P5
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P5
+psfgen) building segment P6
+psfgen) reading residues from pdb file segments/segmentP6.pdb
+psfgen) extracted 5 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP6.pdb for segment P6
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:2	  P6
+psfgen) Warning: failed to set coordinate for atom H6O	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H3O	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom N2	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H2N	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom C2N	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom O2N	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom CME	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H3M	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H2M	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H1M	 NAG:3	  P6
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:4	  P6
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:4	  P6
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:5	  P6
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:5	  P6
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:5	  P6
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:5	  P6
+psfgen) Warning: failed to set coordinate for atom H6O	 MAN:6	  P6
+psfgen) Warning: failed to set coordinate for atom H4O	 MAN:6	  P6
+psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P6
+psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P6
+psfgen) building segment W0
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW0.pdb
+psfgen) extracted 8461 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW0.pdb for segment W0
+psfgen) building segment W1
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW1.pdb
+psfgen) extracted 7480 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW1.pdb for segment W1
+psfgen) building segment W2
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW2.pdb
+psfgen) extracted 1088 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW2.pdb for segment W2
+psfgen) building segment W3
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW3.pdb
+psfgen) extracted 6109 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW3.pdb for segment W3
+psfgen) building segment W4
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW4.pdb
+psfgen) extracted 6102 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW4.pdb for segment W4
+psfgen) building segment W5
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW5.pdb
+psfgen) extracted 731 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW5.pdb for segment W5
+psfgen) building segment W6
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW6.pdb
+psfgen) extracted 7783 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW6.pdb for segment W6
+psfgen) building segment W7
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW7.pdb
+psfgen) extracted 8108 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW7.pdb for segment W7
+psfgen) building segment W8
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW8.pdb
+psfgen) extracted 1095 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW8.pdb for segment W8
+psfgen) building segment W9
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW9.pdb
+psfgen) extracted 5789 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW9.pdb for segment W9
+psfgen) building segment W10
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW10.pdb
+psfgen) extracted 6176 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW10.pdb for segment W10
+psfgen) building segment W11
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW11.pdb
+psfgen) extracted 737 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW11.pdb for segment W11
+psfgen) building segment W12
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW12.pdb
+psfgen) extracted 605 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW12.pdb for segment W12
+psfgen) building segment W13
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW13.pdb
+psfgen) extracted 608 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW13.pdb for segment W13
+psfgen) building segment W14
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW14.pdb
+psfgen) extracted 73 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW14.pdb for segment W14
+psfgen) building segment W15
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW15.pdb
+psfgen) extracted 420 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW15.pdb for segment W15
+psfgen) building segment W16
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW16.pdb
+psfgen) extracted 423 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW16.pdb for segment W16
+psfgen) building segment W17
+psfgen) disabling angle autogeneration
+psfgen) disabling dihedral autogeneration
+psfgen) reading residues from pdb file segments/segmentW17.pdb
+psfgen) extracted 51 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentW17.pdb for segment W17
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch DISU to 2 residue(s)
+psfgen) applying patch NGLB to 2 residue(s)
+psfgen) applying patch NGLB to 2 residue(s)
+psfgen) applying patch NGLB to 2 residue(s)
+psfgen) applying patch NGLB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 14BB to 2 residue(s)
+psfgen) applying patch 13AB to 2 residue(s)
+psfgen) applying patch 13AB to 2 residue(s)
+psfgen) applying patch 13AB to 2 residue(s)
+psfgen) applying patch 13AB to 2 residue(s)
+psfgen) applying patch 16AT to 2 residue(s)
+psfgen) applying patch 16AT to 2 residue(s)
+psfgen) applying patch 16AT to 2 residue(s)
+psfgen) applying patch 16AT to 2 residue(s)
+psfgen) applying patch ASPP to 1 residue(s)
+psfgen) applying patch ASPP to 1 residue(s)
+psfgen) applying patch GLUP to 1 residue(s)
+psfgen) applying patch GLUP to 1 residue(s)
+psfgen) applying patch GLUP to 1 residue(s)
+psfgen) applying patch GLUP to 1 residue(s)
+psfgen) regenerating all angles
+psfgen) regenerating all dihedrals
+psfgen) Info: guessing coordinates for 188 atoms (42 non-hydrogen)
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: failed to guess coordinate due to bad angle HB2 CB HB1
+psfgen) Warning: poorly guessed coordinates for 38 atoms (10 non-hydrogen):
+psfgen) Warning: poorly guessed coordinate for atom CAY	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom HY1	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom HY2	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom HY3	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom CY	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom OY	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom HN	 LEU:32	  P0
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:46	  P0
+psfgen) Warning: poorly guessed coordinate for atom HE2	 GLU:48	  P0
+psfgen) Warning: poorly guessed coordinate for atom HD2	 ASP:136	  P0
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:186	  P0
+psfgen) Warning: poorly guessed coordinate for atom HE2	 GLU:203	  P0
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:225	  P0
+psfgen) Warning: poorly guessed coordinate for atom NT	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom HNT	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom CAT	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom HT1	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom HT2	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom HT3	 MET:421	  P0
+psfgen) Warning: poorly guessed coordinate for atom CAY	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom HY1	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom HY2	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom HY3	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom CY	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom OY	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom HN	 LEU:32	  P1
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:46	  P1
+psfgen) Warning: poorly guessed coordinate for atom HE2	 GLU:48	  P1
+psfgen) Warning: poorly guessed coordinate for atom HD2	 ASP:136	  P1
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:186	  P1
+psfgen) Warning: poorly guessed coordinate for atom HE2	 GLU:203	  P1
+psfgen) Warning: poorly guessed coordinate for atom HB1	 HSE:225	  P1
+psfgen) Warning: poorly guessed coordinate for atom NT	 GLN:422	  P1
+psfgen) Warning: poorly guessed coordinate for atom HNT	 GLN:422	  P1
+psfgen) Warning: poorly guessed coordinate for atom CAT	 GLN:422	  P1
+psfgen) Warning: poorly guessed coordinate for atom HT1	 GLN:422	  P1
+psfgen) Warning: poorly guessed coordinate for atom HT2	 GLN:422	  P1
+psfgen) Warning: poorly guessed coordinate for atom HT3	 GLN:422	  P1
+psfgen) Info: writing psf file structure.psf
+psfgen) total of 198240 atoms
+psfgen) total of 198444 bonds
+psfgen) total of 85141 angles
+psfgen) total of 34330 dihedrals
+psfgen) total of 2192 impropers
+psfgen) total of 0 explicit exclusions
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 781 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file structure.pdb
+psfgen) Info: Atoms with guessed coordinates will have occupancy of 0.0.
+psfgen) Info: pdb file complete.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
