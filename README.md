@@ -2,10 +2,11 @@
 
 The repo contains:
 
-1. *glycosilation/*, contains the reglycosilated pdb structure and other glycan-related data.
-2. *DGJ/*, contains DGJ chain A and B mol2 files used in mol_prep_fabry.py and other DGJ-related data.
-3. *results/*, for each model and replica, contains csv tables and relative plots.
-4. *functions/*, contains all the required functions to prepare the system, run it and analyse the outputs.
+- *glycosilation/*, contains the reglycosilated pdb structure and other glycan-related data.
+- *DGJ/*, contains DGJ chain A and B mol2 files used in mol_prep_fabry.py and other DGJ-related data.
+- *prepared_systems*, contains a set of 6 systems (apo and holo, wt, N215S, R301Q) ready for equilibration
+- *results/*, for each model and replica, contains csv tables and relative plots.
+- *functions/*, contains all the required functions to prepare the system, run it and analyse the outputs.
 
 ## Tutorial
 ### Step 1: system building and preparation
