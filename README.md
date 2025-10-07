@@ -12,10 +12,10 @@ The repo contains:
 ### Step 1: system building and preparation
 It can be easily done by running the [mol_prep_fabry.ipynb](functions/mol_prep_fabry.ipynb) which includes:
 
-    - mutation and glycosilation handling
-    - DGJ (Migalastat) placement
-    - system segmentation and preparation
-    - equilibration folder
+- mutation and glycosilation handling
+- DGJ (Migalastat) placement
+- system segmentation and preparation
+- equilibration folder
 
 The notebook generates a series of folders, both for the apo and holo (DGJ) structures, divided by mutation, containing the required input parameters to run an equilibration step. 
 
