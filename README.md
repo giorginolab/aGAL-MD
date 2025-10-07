@@ -11,12 +11,15 @@ The repo contains:
 ## Tutorial
 ### Step 1: system building and preparation
 It can be easily done by running the [mol_prep_fabry.ipynb](functions/mol_prep_fabry.ipynb) which includes:
-    - mutation handling
-    - glycosilation
+
+    - mutation and glycosilation handling
     - DGJ (Migalastat) placement
     - system segmentation and preparation
     - equilibration folder
+
 The notebook generates a series of folders, both for the apo and holo (DGJ) structures, divided by mutation, containing the required input parameters to run an equilibration step. 
+
+If multiple replicas of the system are to be run, please make copies of the folders at this point and store them in a parent folder.
 
 ### Step 2: equilibration run
 The equilibration must be runned on HPC.
@@ -34,10 +37,11 @@ If multiple systems are run in parallel, it is possible to check if the equilibr
     
     python ../functions/check_end.py equilibration
 ```
-*NOTE:* this file looks for the slurm file and checks if it ended correctly, more precise evaluation must be carried.
+**NOTE** this file looks for the slurm file and checks if it ended correctly, more precise evaluation must be carried.
 
 ### Step 3: production preparation and run
 Once the equilibration is completed it is possible to prepare the system for the production run.
+
 From within the system folder do:
 
 ```bash
@@ -70,7 +74,7 @@ If multiple systems are run in parallel, it is possible to check if the equilibr
     
     python ../functions/check_end.py production
 ```
-*NOTE:* this file looks for the slurm file with the highest number (the last run) and checks if it ended correctly, more precise evaluation must be carried.
+**NOTE** this file looks for the slurm file with the highest number (the last run) and checks if it ended correctly, more precise evaluation must be carried.
 
 ### Step 4: 
 We included a set of simple analysis based on RMSD and RMSF on protein, ligand and glycans.
