@@ -7,8 +7,6 @@ The repo contains:
 3. *results/*, for each model and replica, contains csv tables and relative plots.
 4. *functions/*, contains all the required functions to prepare the system, run it and analyse the outputs.
 
-    - evaluation.ipynb a notebook to compute and visualise RMSD and RMSF of different contitions (relies on rmsd.py and rmsf.py);
-
 ## Tutorial
 ### Step 1: system building and preparation
 It can be easily done by running the [mol_prep_fabry.ipynb](functions/mol_prep_fabry.ipynb) which includes:
