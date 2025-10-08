@@ -2,13 +2,24 @@
 
 The repo contains:
 
-- *glycosilation/*, contains the reglycosilated pdb structure and other glycan-related data.
+- *glycosilation/*, contains the [reglycosilated pdb structure](/glycosilation/3gxt_reglyco.pdb)* and informations about the glycans.
 - *DGJ/*, contains DGJ chain A and B mol2 files used in mol_prep_fabry.py and other DGJ-related data.
 - *prepared_systems*, contains a set of 6 systems (apo and holo, wt, N215S, R301Q) ready for equilibration
-- *results/*, for each model and replica, contains csv tables and relative plots.
+- *results/*, for each model and replica, contains csv tables and plots for comparison.
 - *functions/*, contains all the required functions to prepare the system, run it and analyse the outputs.
 
+*The protein structure is based on the [PDB 3GXT](rcsb.org/3d-view/3GXT/1) model, which underwent a reglycosilation step via [glycoshape.org](https://glycoshape.org/reglyco) 
+to have the same glycan structure in each glycosilated sites, in particular:
+![image](glycosilation/glycan.svg).
+The NOJ (ligand) will be addressed in step 1 of the tutorial.
+
 ## Tutorial
+This package relies on HTMD, Moleculekit and ACEMD software, which can be installed as:
+```bash
+    conda create -n ace_software #create a new conda environment (recommended but not necessary)
+    conda activate ace_software #activate the new conda environment if you decided to create one
+    conda install htmd acemd cuda-version=12 python=3.10 -c acellera -c conda-forge
+```
 ### Step 1: system building and preparation
 It can be easily done by running the [mol_prep_fabry.ipynb](functions/mol_prep_fabry.ipynb) which includes:
 
