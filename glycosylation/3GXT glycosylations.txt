@@ -1,0 +1,55 @@
+3GXT re-glycosilations (G00026MO)
+
+CHAINS AND SEGIDS
+chain A  | chain B  | chain C  | chain D  | chain E  | chain F  | chain G  | chain H  | chain L (DGJ)
+segid P0 | segid P1 | segid P2 | segid P3 | segid P4 | segid P5 | segid P6 | segid P7 | segid P8
+
+chain A (P0) and chain B (P1) = protein
+                                                                                         AMAN5(1-6)
+                                                                                        /
+chain C and D and E and F and G and H = glycan ASN -BGLCNA2(1-4)-BGLCNA3(1-4)-BMAN4(1-4)
+                                                                                        \
+                                                                                         AMAN6(1-3)
+
+#REMEMBER TO CALL NOREGEN IN charmm.build FOR THE FOLLOWING PATCHES
+
+ASN ND2                                   NAG/BGLCNA 2 C1                 (patch NGLB)                           
+chain A and resid 139 and name ND2   P0   chain C     P2                              
+chain A and resid 192 and name ND2   P0   chain D     P3                               
+chain A and resid 215 and name ND2   P0   chain E     P4                                
+
+chain B and resid 139 and name ND2   P1   chain F 	  P5                                
+chain B and resid 192 and name ND2   P1   chain G 	  P6                                
+chain B and resid 215 and name ND2   P1   chain H     P7                                 
+
+NAG/BGLCNA 2 O4                           NAG/BGLCNA 3 C1                 (patch 14BB)  
+chain C and resid 2 and name O4      P2   chain C and resid 3 and name C1      P2
+chain D and resid 2 and name O4      P3   chain D and resid 3 and name C1      P3  
+chain E and resid 2 and name O4      P4   chain E and resid 3 and name C1      P4   
+chain F and resid 2 and name O4      P5   chain F and resid 3 and name C1      P5 
+chain G and resid 2 and name O4      P6   chain G and resid 3 and name C1      P6   
+chain H and resid 2 and name O4      P7   chain H and resid 3 and name C1      P7   
+
+NAG/BGLCNA 3 O4                                       BMAN 4 C1           (patch 14BB)
+chain C and resid 3 and name O4      P2   chain C and resid 4 and name C1      P2
+chain D and resid 3 and name O4      P3   chain D and resid 4 and name C1      P3  
+chain E and resid 3 and name O4      P4   chain E and resid 4 and name C1      P4  
+chain F and resid 3 and name O4      P5   chain F and resid 4 and name C1      P5
+chain G and resid 3 and name O4      P6   chain G and resid 4 and name C1      P6     
+chain H and resid 3 and name O4      P7   chain H and resid 4 and name C1      P7      
+
+MAN/BMAN   4 O3                                   MAN/AMAN 6 C1           (patch 13AB)
+chain C and resid 4 and name O3      P2   chain C and resid 6 and name C1      P2
+chain D and resid 4 and name O3      P3   chain D and resid 6 and name C1      P3  
+chain E and resid 4 and name O3      P4   chain E and resid 6 and name C1      P4  
+chain F and resid 4 and name O3      P5   chain F and resid 6 and name C1      P5
+chain G and resid 4 and name O3      P6   chain G and resid 6 and name C1      P6     
+chain H and resid 4 and name O3      P7   chain H and resid 6 and name C1      P7   
+
+MAN/BMAN   4 O6                                   MAN/AMAN 5 C1           (patch 16AT)
+chain C and resid 4 and name O6      P2   chain C and resid 5 and name C1      P2
+chain D and resid 4 and name O6      P3   chain D and resid 5 and name C1      P3  
+chain E and resid 4 and name O6      P4   chain E and resid 5 and name C1      P4  
+chain F and resid 4 and name O6      P5   chain F and resid 5 and name C1      P5
+chain G and resid 4 and name O6      P6   chain G and resid 5 and name C1      P6     
+chain H and resid 4 and name O6      P7   chain H and resid 5 and name C1      P7 
