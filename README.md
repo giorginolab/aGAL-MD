@@ -21,7 +21,8 @@ This package relies on HTMD, Moleculekit and ACEMD software, which can be instal
 ### Step 0: reglycosylate the protein (NON mandatory)
 The protein structure we used here is based on the [PDB 3GXT](rcsb.org/structure/3GXT/) model, which underwent a reglycosylation step via [glycoshape.org](https://glycoshape.org/reglyco) 
 to have the same glycan structure in each glycosylated sites, in particular:
-![Alt Text](glycosylation/glycan.svg).
+![Alt Text](glycosylation/glycan.svg)
+
 The NOJ (ligand) will be addressed in step 1 of the tutorial.
 
 ### Step 1: system building and preparation
