@@ -23,4 +23,4 @@ done
 echo " "
 echo "Done. This is your queue:"
 squeue -l -u $USER
-#for dir in *_2; do [ -d "$dir/production" ] || { echo "Skipping $dir: no production folder"; continue; }; echo "Entering $dir/production"; (cd "$dir/production" && sbatch ../../../functions/sbatch_many 7); done
+
