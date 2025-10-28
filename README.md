@@ -2,7 +2,7 @@
 
 The repo contains:
 
-- *DGJ*, contains mol2 files used to build the correct protein structure and other DGJ-related data.
+- *DGJ*, contains mol2 files used to build the correct protein structure and corresponding forcefield parameters (charmm36).
 - *functions*, contains notebooks and scripts used to obtain the data described in the report.
 - *glycosylation*, contains the [reglycosylated pdb structure](/glycosylation/3gxt_reglyco.pdb)* and informations about the glycans.
 - *prepared_systems*, contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
@@ -10,6 +10,8 @@ The repo contains:
 
 
 *The glycans in this pdb have been processed as described at step 0.
+
+Trajectories obtained from the molecules present in `prepared_systems` folder are available at [10.5281/zenodo.17463313](10.5281/zenodo.17463313).
 
 ## Tutorial
 This package relies on HTMD, Moleculekit and ACEMD software, which can be installed as:
@@ -57,7 +59,7 @@ From within the `equilibration` folder:
 
     for dir in *; do [ -d "$dir/equilibration" ] || { echo "Skipping $dir: no equilibration folder"; continue; }; echo "Entering $dir/equilibration"; (cd "$dir/equilibration" && sbatch ../../../functions/sbatch_acemd); done #multiple submissions
 ```
-**NOTE** the single equilibration submission must be launched from within the specific `equilibration\` folder, the multiple submission must be launched from the parernt folder.
+**NOTE** the single equilibration submission must be launched from within the specific `equilibration` folder, the multiple submission must be launched from the parernt folder.
 
 If multiple systems are run in parallel, it is possible to check if the equilibrations are ended by running [check_end.py](functions/check_end.py), called from the parent folder:
 
