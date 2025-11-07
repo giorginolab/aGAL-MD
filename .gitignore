@@ -1,0 +1,5 @@
+__pycache__/
+3gxt_reglyco/
+functions/evaluation.py
+dist.zip
+*checkpoint.ipynb

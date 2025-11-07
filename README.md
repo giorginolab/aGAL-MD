@@ -7,7 +7,7 @@ The repo contains:
 - *glycosylation*, contains the [reglycosylated pdb structure](/glycosylation/3gxt_reglyco.pdb)* and informations about the glycans.
 - *prepared_systems*, contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
 - *results*, contains csv tables and plots obtained from the analysis of the trajectories.
-
+ 
 
 *The glycans in this pdb have been processed as described at step 0.
 
