@@ -128,5 +128,8 @@ This involves:
 ```
 
 
+## Acknowledgements
+
+The report was conduced as part of a project funded by Partenariato Esteso “Health Extended ALliance for Innovative Therapies, Advanced Lab-research, and Integrated Approaches of Precision Medicine -- HEAL ITALIA -- PE 00000019”, a valere sulle risorse del Piano Nazionale di Ripresa e Resilienza (PNRR) Missione 4 “Istruzione e Ricerca” – Componente 2 “Dalla Ricerca all'Impresa” -- Investimento 1.3, finanziato dall’Unione europea – NextGenerationEU -- a valere sull’Avviso pubblico del Ministero dell'Università e della Ricerca (MUR) n. 341 del 15.03.2022 (CUP Spoke leader: Università degli Studi di Milano-Bicocca – CUP H43C22000830006 – Spoke 5 “Next-Gen Therapeutics”).
 
     
