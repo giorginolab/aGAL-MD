@@ -12,7 +12,7 @@ The repo contains:
 
 *The glycans in this pdb have been processed as described at step 0.
 
-Trajectories obtained from the molecules present in `prepared_systems` folder are available with DOI:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241).
+Trajectories obtained from the molecules present in `prepared_systems` folder are available with DOI:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241): 1/ns  fames, 3 replicas, water stripped out.
 
 ## Tutorial
 This package relies on HTMD, Moleculekit and ACEMD software, which can be installed as:
