@@ -12,7 +12,7 @@ The repo contains:
 
 *The glycans in this pdb have been processed as described at step 0.
 
-Trajectories obtained from the molecules present in `prepared_systems` folder are available with DOI:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241): 1/ns  fames, 3 replicas, water stripped out.
+Trajectories obtained from the molecules present in `prepared_systems` folder are available at doi:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241): 1 ns per frame, 3 replicas, water stripped out.
 
 ## Tutorial
 This package relies on HTMD, Moleculekit and ACEMD software, which can be installed as:
@@ -21,7 +21,7 @@ This package relies on HTMD, Moleculekit and ACEMD software, which can be instal
     conda activate ace_software #activate the new conda environment if you decided to create one
     conda install htmd acemd cuda-version=12 python=3.10 -c acellera -c conda-forge
 ```
-### Step 0: reglycosylate the protein (NON mandatory)
+### Step 0: reglycosylate the protein (optional)
 The protein structure we used here is based on the [PDB 3GXT](rcsb.org/structure/3GXT/) model, which underwent a reglycosylation step via [glycoshape.org](https://glycoshape.org/reglyco) 
 to have the same glycan structure in each glycosylated sites, in particular:
 ![Alt Text](glycosylation/glycan.svg)
