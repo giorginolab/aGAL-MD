@@ -2,12 +2,18 @@
 
 The repo contains:
 
+- *report*, this preprint: I. Cazzaniga, T. Giorgino, *Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness*, 2025. [preprint](report/aGAL_report.pdf)
 - *DGJ*, contains mol2 files used to build the correct protein structure and corresponding forcefield parameters (charmm36).
 - *functions*, contains notebooks and scripts used to obtain the data described in the report.
 - *glycosylation*, contains the [reglycosylated pdb structure](/glycosylation/3gxt_reglyco.pdb)* and informations about the glycans.
 - *prepared_systems*, contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
 - *results*, contains csv tables and plots obtained from the analysis of the trajectories.
-- *report*, a technical report in long-form.
+
+Preprint and code: [![DOI](https://zenodo.org/badge/1067749794.svg)](https://doi.org/10.5281/zenodo.17651899)
+
+Data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17552241.svg)](https://doi.org/10.5281/zenodo.17552241)
+
+
  
 
 *The glycans in this pdb have been processed as described at step 0.
@@ -21,6 +27,7 @@ This package relies on HTMD, Moleculekit and ACEMD software, which can be instal
     conda activate ace_software #activate the new conda environment if you decided to create one
     conda install htmd acemd cuda-version=12 python=3.10 -c acellera -c conda-forge
 ```
+
 ### Step 0: reglycosylate the protein (optional)
 The protein structure we used here is based on the [PDB 3GXT](rcsb.org/structure/3GXT/) model, which underwent a reglycosylation step via [glycoshape.org](https://glycoshape.org/reglyco) 
 to have the same glycan structure in each glycosylated sites, in particular:
