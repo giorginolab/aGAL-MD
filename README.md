@@ -1,5 +1,15 @@
 # α-galactosidase MD preparation and analysis
 
+Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness
+
+|    |    |
+| ----- | ------- |
+| Preprint and code: | [![DOI](https://zenodo.org/badge/1067749794.svg)](https://doi.org/10.5281/zenodo.17651899) |
+| Data: | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17552241.svg)](https://doi.org/10.5281/zenodo.17552241) |
+
+
+## Summary
+
 The repo contains:
 
 - *report*, this preprint: I. Cazzaniga, T. Giorgino, *Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness*, 2025. [preprint](report/aGAL_report.pdf)
@@ -8,10 +18,6 @@ The repo contains:
 - *glycosylation*, contains the [reglycosylated pdb structure](/glycosylation/3gxt_reglyco.pdb)* and informations about the glycans.
 - *prepared_systems*, contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
 - *results*, contains csv tables and plots obtained from the analysis of the trajectories.
-
-Preprint and code: [![DOI](https://zenodo.org/badge/1067749794.svg)](https://doi.org/10.5281/zenodo.17651899)
-
-Data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17552241.svg)](https://doi.org/10.5281/zenodo.17552241)
 
 
  
