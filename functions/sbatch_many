@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#multiple chained submissions for long productions
 
 if [[ $# -lt 1 ]]; then
    echo "Usage: $0 <NUM>"

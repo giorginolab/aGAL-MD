@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
+
+#REMOVE WATER AND SLICE TRAJ EVERY 10th FRAME
+
 #outside the protein folder (i.e. within 3GXT_reglyco/)
 #python ../functions/filter_prod.py
 import sys
 import os
-import re
 from moleculekit.molecule import Molecule
 
 replica_folders = sorted([d for d in os.listdir('.') if os.path.isdir(d)])
 
-if not replica_folders: #list all folders
+if not replica_folders: 
     print("No replica folders found in current directory.")
     sys.exit(1)
 

@@ -1,28 +1,21 @@
 #!/usr/bin/env python3
-#outside the protein folder (i.e. within 3GXT_reglyco/)
+#call outside the protein folder (i.e. within 3GXT_reglyco/)
 #python ../functions/check_end.py equilibration/production
 import sys
 import os
 import re
 
-# Check for correct usage
 if len(sys.argv) < 2:
     print("Usage: script.py equilibration|production")
     sys.exit(1)
+line_param = sys.argv[1] #specify equilibration|production check
 
-# Get the folder type to look into: "equilibration" or "production"
-line_param = sys.argv[1]
-
-# List all folders in the current directory (assumed replicas)
 replica_folders = sorted([d for d in os.listdir('.') if os.path.isdir(d)])
-
 if not replica_folders:
     print("No replica folders found in current directory.")
     sys.exit(1)
 
-# Compile regex to capture the number after 'slurm-' and before '.out'
-pattern = re.compile(r"slurm-(\d+)\.out$")
-
+pattern = re.compile(r"slurm-(\d+)\.out$") #retrive the submission number
 for replica in replica_folders:
     target_folder = os.path.join(replica, line_param)
     if not os.path.isdir(target_folder):
@@ -32,7 +25,6 @@ for replica in replica_folders:
 
     max_num = -1
     max_file = None
-    # Find the slurm-*.out file with the highest number
     for f in out_files:
         match = pattern.match(f)
         if not match:
@@ -48,7 +40,6 @@ for replica in replica_folders:
     file_path = os.path.join(target_folder, max_file)
     found = False
 
-    # Open the file and search for the string "Simulation completed!"
     try:
         with open(file_path, 'r') as file:
             for line in file:

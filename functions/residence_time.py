@@ -1,3 +1,6 @@
+#compute ligand residence time
+#call from the parent folder.
+
 import pandas as pd
 import numpy as np
 
@@ -11,7 +14,7 @@ for s in structures:
         for resi in [1, 2]:
             df = pd.read_csv(f'../results/tables/{s}_{r}_lig_{resi}_rmsd.csv')
 
-            # rmsd >= 5
+            # rmsd >= 5 is the limit we set to define in/out
             t_exit = df.loc[df['rmsd'] >= 5, 'time']
             r_time = t_exit.iloc[0] if not t_exit.empty else np.nan
 

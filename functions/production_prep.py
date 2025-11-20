@@ -1,6 +1,7 @@
 #ENV = htmd
+
 #run within folder
-#for calling in multiple folders/ : for dir in *_2/; do [ -d "$dir" ] || continue; echo "Entering $dir"; (cd "$dir" && python ../../functions/production_prep.py); done
+#ro call multiple folders/ : for dir in *_2/; do [ -d "$dir" ] || continue; echo "Entering $dir"; (cd "$dir" && python ../../functions/production_prep.py); done
 
 
 from acemd.protocols import setup_production

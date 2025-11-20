@@ -2,25 +2,26 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd 
-
 from moleculekit.molecule import Molecule 
 import moleculekit.projections.metricfluctuation as fluct
-import sys
 import os
-import re
 
 def rmsf(filename=str, topology=str, trajectory=str, atomsel=str, refmol=None, trajalnsel=str, refalnsel='protein and name CA'):
     """
-    Compute and plot the Root Mean Square Fluctuation (RMSF) for selected atoms in a trajectory.
+    Compute the root-mean-square fluctuation (RMSF) of a trajectory with 
+    respect to:
+    - refmol, a provided reference structure;
+    - the mean atomic position if no reference is provided.
+    Results saved as CSV tables.
+     
+    If called twice with the same filename it won't recompute.
 
-    This function uses MoleculeKit's `MetricFluctuation` to compute RMSF values for 
-    a given atom selection, relative to either a reference molecule or the trajectory mean.
-    Results are stored in a CSV file for reuse.
+    This function uses MoleculeKit's `MetricFluctuation` to compute RMSF.
 
     Parameters
     ----------
         filename: str
-            Prefix for saving results (CSV and PDF).
+            Base name for the output file stored under `../results/tables`.
         topology: str 
             Path to the topology file (e.g., PDB, PSF).
         trajectory: str 
@@ -40,6 +41,7 @@ def rmsf(filename=str, topology=str, trajectory=str, atomsel=str, refmol=None, t
     -------
     - CSV file: `../results/tables/{filename}_rmsf.csv`
     """
+    
     csv_file = f"../results/tables/{filename}_rmsf.csv"
     
     if os.path.exists(csv_file):
@@ -50,6 +52,7 @@ def rmsf(filename=str, topology=str, trajectory=str, atomsel=str, refmol=None, t
             ref_mol = None
             print('RMSF will be computed around the trajectory mean atomic positions, else add a refmol Molecule object.')
         else:
+            print('If not removed yet, run "filter_prod.py" to remove water before loading.')
             ref_mol = Molecule(refmol, validateElements = False)
             #ref_mol.filter("not resname TIP3") #run filter_prod.py before calling this function
         mol = Molecule(topology, validateElements = False)
@@ -59,16 +62,16 @@ def rmsf(filename=str, topology=str, trajectory=str, atomsel=str, refmol=None, t
     
 
         #compute rmsf
-        #superpose muovere tutta proteina su refalnsel
-        mol.align(sel = refalnsel)
+        mol.align(sel = refalnsel) 
         met=fluct.MetricFluctuation(atomsel = atomsel, refmol = ref_mol, trajalnsel= trajalnsel, refalnsel = refalnsel, mode = 'atom', pbc =False) #allowed also "residue" 
         fluct_values = met.project(mol)
 
         rmsf = np.sqrt(fluct_values.mean(axis=0))
 
         #residue index (assume 1 atom per residue i.e. CA)
-        resid= mol.get('resid', atomsel) #its a dimer, numbers will be repeated.
+        resid= mol.get('resid', atomsel) #its a dimer, numbers will be repeated, divide by segid.
         segid= mol.get('segid', atomsel)
+        
         #store data in csv
         data = pd.DataFrame({
             'resid': resid,

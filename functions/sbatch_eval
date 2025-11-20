@@ -1,8 +1,10 @@
 #!/bin/bash
+
+#run enitre notebook
+
 #SBATCH -A IscrC_aGAL1
 #SBATCH -p boost_usr_prod
 #SBATCH --time=24:00:00
-#SBATCH --gres=gpu:1
 #SBATCH --output=eval_%j.out
 #SBATCH --error=eval_%j.err
 #SBATCH --ntasks=1
