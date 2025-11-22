@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#run enitre notebook
+#run entire evaluation on HPC
 
 #SBATCH -A IscrC_aGAL1
 #SBATCH -p boost_usr_prod
@@ -23,4 +23,3 @@ conda info --envs
 
 # Run your script
 srun python evaluation.py
-

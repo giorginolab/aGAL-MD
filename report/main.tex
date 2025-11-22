@@ -188,9 +188,9 @@ The equilibration is run in NPT (constant pressure) conditions, at 300 K and for
 \end{table}
 
 \subsection{Post-simulation analysis}
-Once the simulations ended, we performed a general evaluation as part of the methods pipeline.  This section documents analysis steps rather than interpretation.
-First, we checked the structures in VMD \cite{HUMP96}, then we run some analysis based on Root Mean Square Deviation (RMSD) and Root Mean Square Fluctuation (RMSF) to evaluate the protein's stability thorough the simulation, the glycans and, when present, the ligand. 
-The main scopes of this step are (i) to ensure that the dynamics is stable and the structure did not break, and (ii) to evaluate the glycans and ligand behaviour in the simulated time.
+Once the simulations ended, we performed a general evaluation as part of the methods pipeline. This section documents analysis steps rather than interpretation.
+First, we checked the structures in VMD \cite{HUMP96}, then we ran analyses based on Root Mean Square Deviation (RMSD) and Root Mean Square Fluctuation (RMSF) to evaluate the protein's stability throughout the simulation, the glycans and, when present, the ligand. 
+The main aims of this step are (i) to ensure that the dynamics is stable and the structure does not break, and (ii) to evaluate glycans and ligand behaviour over the simulated time.
 
 Both RMSD and RMSF are computed with the MoleculeKit projection package \cite{doerr2016htmd}, in particular using \textit{MetricRmsd} and \textit{MetricFluctuation} classes. 
 In case of RMSF, we computed the square root of the mean value of fluctuation for each residue, saving the results as CSV data tables.
@@ -385,7 +385,7 @@ All input structures, simulation protocols, intermediate files, analysis scripts
 
 \section{Acknowledgments}
 
-The report was conduced as part of a project funded by Partenariato Esteso “Health Extended ALliance for Innovative Therapies, Advanced Lab-research, and Integrated Approaches of Precision Medicine -- HEAL ITALIA -- PE 00000019”, a valere sulle risorse del Piano Nazionale di Ripresa e Resilienza (PNRR) Missione 4 “Istruzione e Ricerca” – Componente 2 “Dalla Ricerca all'Impresa” -- Investimento 1.3, finanziato dall’Unione europea – NextGenerationEU -- a valere sull’Avviso pubblico del Ministero dell'Università e della Ricerca (MUR) n. 341 del 15.03.2022 (CUP Spoke leader: Università degli Studi di Milano-Bicocca – CUP H43C22000830006 – Spoke 5 “Next-Gen Therapeutics”).
+The report was conducted as part of a project funded by Partenariato Esteso “Health Extended ALliance for Innovative Therapies, Advanced Lab-research, and Integrated Approaches of Precision Medicine -- HEAL ITALIA -- PE 00000019”, a valere sulle risorse del Piano Nazionale di Ripresa e Resilienza (PNRR) Missione 4 “Istruzione e Ricerca” – Componente 2 “Dalla Ricerca all'Impresa” -- Investimento 1.3, finanziato dall’Unione europea – NextGenerationEU -- a valere sull’Avviso pubblico del Ministero dell'Università e della Ricerca (MUR) n. 341 del 15.03.2022 (CUP Spoke leader: Università degli Studi di Milano-Bicocca – CUP H43C22000830006 – Spoke 5 “Next-Gen Therapeutics”).
 
 \begin{table}[h!]
 \centering
