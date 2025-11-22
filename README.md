@@ -69,6 +69,8 @@ It can be easily done by running the [1_mol_prep_fabry.ipynb](functions/1_mol_pr
 - system segmentation and preparation
 - equilibration folder creation
 
+Although the example workflow focuses on migalastat, other ligands or competitive inhibitors can be modeled by providing their coordinates in place of NOJ/DGJ and supplying compatible force-field parameters (e.g. via CGenFF), without changing the rest of the protocol.
+
 The notebook generates a folder for each mutant apo/holo structure, each folder contains a `build` folder with the intermediate steps of the system preparation and an `equilibration` folder. 
 
 If multiple replicas of the system are to be run, please make copies of the folders at this point and store them in a parent folder following this pattern:

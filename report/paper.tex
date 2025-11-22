@@ -193,6 +193,7 @@ The six systems summarized in Table~\ref{tab:simulations} were modeled with the 
 Glycan parameters and topologies were taken from the CHARMM36 glycopeptide parameter file \verb+toppar_all36_carb_glycopeptide.str+.
 Migalastat was parameterized using the CHARMM General Force Field (CGenFF, program version 4.0) via the ParamChem online service \cite{vanommeslaeghe_automation_2012}.
 Penalty scores were below 10 for both bonded and charge parameters, indicating acceptable transferability for routine MD.
+The same procedure can be used to introduce alternative competitive inhibitors or ligands, by supplying their coordinates in place of migalastat and deriving compatible CGenFF parameters, while leaving the remainder of the protocol unchanged.
 
 \subsubsection{Solvation, protonation state and equilibration}
 
