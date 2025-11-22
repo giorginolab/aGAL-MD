@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{A Microsecond-Scale Molecular Dynamics Dataset of Glycosylated Wild-Type and Mutant $\alpha$-Galactosidase A for Pharmacoperone Amenability Prediction}
+\title{A Standardized Molecular Dynamics Workflow for Glycosylated Wild-Type and Mutant $\alpha$-Galactosidase A in Pharmacoperone Amenability Studies}
 
 \author{Irene Cazzaniga, Toni Giorgino \\[5mm]
 Istituto di Biofisica, Consiglio Nazionale delle Ricerche}
@@ -29,7 +29,7 @@ Istituto di Biofisica, Consiglio Nazionale delle Ricerche}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Fabry disease is a multi-systemic X-linked lysosomal storage disorder caused by deficient activity of $\alpha$-galactosidase A (\agal), a dimeric glycoprotein that hydrolyses terminal $\alpha$-galactose residues from glycosphingolipids and related substrates. Here we present a curated molecular dynamics (MD) dataset that captures the conformational dynamics of wild-type and mutant \agal\ in both apo and pharmacoperone-bound states, with explicit representation of N-glycans and the small-molecule chaperone migalastat. Starting from a standardized, re-glycosylated crystal structure, we generated six systems (apo and migalastat-bound wild type, N215S and R301Q mutants), each simulated for 1~$\mu$s in triplicate, yielding an aggregate of 18~$\mu$s of all-atom trajectories. All systems were prepared with a unified protocol for glycan placement, mutant construction, ligand parameterization, protonation, solvation, and equilibration, and were propagated with the CHARMM36 force field under fully documented conditions. The data package comprises raw topologies and trajectories, filtered trajectories for analysis, and processed tables of root-mean-square deviation (RMSD), root-mean-square fluctuation (RMSF), and ligand residence times, organized according to a consistent naming scheme. This resource is designed to support reuse in quantitative studies, including the training and benchmarking of machine-learning models for migalastat amenability prediction and for deriving dynamical descriptors of protein, glycan and ligand behavior in Fabry disease mutants.
+Fabry disease is a multi-systemic X-linked lysosomal storage disorder caused by deficient activity of $\alpha$-galactosidase A (\agal), a dimeric glycoprotein that hydrolyses terminal $\alpha$-galactose residues from glycosphingolipids and related substrates. Variant-specific treatment decisions increasingly rely on quantitative predictions of pharmacoperone amenability, yet reproducible protocols for generating standardized, glycosylated molecular dynamics (MD) simulations of \agal\ are scarce. Here we describe a complete and reusable workflow for preparing, simulating and analysing wild-type and mutant \agal\ under apo and pharmacoperone-bound conditions, with explicit N-glycans and the small-molecule chaperone migalastat. The protocol starts from a reglycosylated crystal structure, introduces clinically relevant mutations, constructs apo and holo states, and performs multi-replica, microsecond-scale MD using a single, fully specified pipeline for glycan placement, mutant construction, ligand parameterization, protonation, solvation, equilibration and production. Post-processing steps define standard metrics (RMSD, RMSF, ligand residence times) and a consistent file- and column-naming scheme for downstream analysis. A reference implementation, including scripts, notebooks and example input/output files, is provided in an open repository to facilitate adoption, adaptation and integration into machine-learning workflows for migalastat amenability prediction.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,18 +50,18 @@ As a result, N-glycans are incompletely represented, and ligand dynamics are abs
 Static models provide limited insight into the flexibility, stability and long-timescale behavior of wild-type and mutant enzymes under conditions relevant for pharmacoperone binding and release.
 They also do not directly provide the time-resolved descriptors needed to train machine-learning (ML) models designed to predict migalastat amenability or to distinguish stabilizing from destabilizing variants.
 
-The present work addresses this gap by releasing a standardized, microsecond-scale MD dataset of glycosylated wild-type and mutant \agal\ systems, designed from the outset for reuse.
+The present work addresses this gap by formalizing and publishing a standardized MD workflow for glycosylated wild-type and mutant \agal\ systems, designed from the outset for reproducibility and reuse.
 Starting from a single, well-characterized PDB structure, we re-glycosylated the protein using a commonly observed N-glycan core, generated pharmacologically relevant mutants and ligand-bound states, and propagated multi-replica trajectories under a single, fully documented protocol.
-The resulting dataset emphasizes: (i) explicit and homogeneous representation of N-glycosylation, (ii) reproducible system preparation for both apo and holo states, (iii) inclusion of clinically relevant Fabry variants, and (iv) systematic post-processing into machine-learning-ready descriptors.
+The workflow emphasizes: (i) explicit and homogeneous representation of N-glycosylation, (ii) reproducible system preparation for both apo and holo states, (iii) inclusion of clinically relevant Fabry variants, and (iv) systematic post-processing into machine-learning-ready descriptors.
 
-We focus on six systems comprising apo and migalastat-bound (holo) wild-type \agal\ and two clinically relevant mutants, N215S and R301Q, each simulated for 1~$\mu$s in three independent replicas (Table~\ref{tab:simulations}).
+To illustrate the use of the protocol, we apply it to six systems comprising apo and migalastat-bound (holo) wild-type \agal\ and two clinically relevant mutants, N215S and R301Q, each simulated for 1~$\mu$s in three independent replicas (Table~\ref{tab:simulations}).
 N215S lies on the protein surface at an N-glycosylation site; in the mutant, the corresponding glycan is absent, reducing the number of N-glycans from six to four per dimer and impacting solubility and secretion.
 R301Q is located on a loop at the dimer interface and is associated with cardiac-variant Fabry disease phenotypes.
 Both mutants are considered migalastat amenable and thus constitute relevant test cases for pharmacoperone responsiveness \cite{oder_-galactosidase_2017, sheng_two_2020, kugan_fabry_2024,fan_accelerated_1999, ishii_mutant_2007, brady_diagnosing_2015}.
 
-Rather than proposing new biological mechanisms, we present this dataset as a reusable resource.
-All build scripts, simulation inputs and analysis notebooks are openly available in a dedicated GitHub repository, while the full trajectories and topologies are deposited on Zenodo with a citable DOI.
-Processed analysis outputs (RMSD, RMSF and residence-time tables) are provided as consistently annotated comma-separated value (CSV) files, enabling immediate integration into downstream workflows for ML, comparative dynamics or method development.
+Rather than proposing new biological mechanisms, we present this protocol and its reference implementation as a reusable resource.
+All build scripts, simulation inputs and analysis notebooks are openly available in a dedicated GitHub repository, while the resulting trajectories and topologies are deposited on Zenodo with a citable DOI.
+Processed analysis outputs (RMSD, RMSF and residence-time tables) are provided as consistently annotated comma-separated value (CSV) files, demonstrating the downstream products of the workflow and enabling immediate integration into ML, comparative dynamics or method-development pipelines.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}
@@ -250,7 +250,8 @@ The corresponding scripts and notebook (\verb+evaluation.ipynb+) are distributed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Records}
 
-The dataset comprises raw simulation files (topologies and trajectories), filtered trajectories for analysis, and tabulated observables derived from RMSD, RMSF and ligand residence-time calculations.
+Although the primary focus of this work is the workflow itself, we also distribute a complete reference dataset obtained by applying the protocol to the systems in Table~\ref{tab:simulations}.
+This dataset comprises raw simulation files (topologies and trajectories), filtered trajectories for analysis, and tabulated observables derived from RMSD, RMSF and ligand residence-time calculations.
 All input structures, simulation protocols, intermediate files, analysis scripts and processed datasets are openly available in the GitHub repository at \url{https://github.com/giorginolab/aGAL-MD}.
 Full trajectories and topology files are deposited on Zenodo with DOI \url{10.5281/zenodo.17463313}.
 
@@ -535,4 +536,3 @@ Table of abbreviations used throughout the manuscript.
 \printbibliography
 
 \end{document}
-
