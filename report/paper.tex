@@ -1,0 +1,538 @@
+\documentclass{article}
+
+%\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{textalpha}
+\usepackage{verbatim}
+\usepackage{booktabs}
+\usepackage{soul}
+\usepackage{xcolor}
+\hypersetup{hidelinks}
+\usepackage{csvsimple}
+\usepackage[style=numeric,sorting=none,url=false]{biblatex}
+
+\newcommand{\agal}{$\alpha$GAL}
+
+\addbibresource{references.bib}
+
+\begin{document}
+
+\title{A Microsecond-Scale Molecular Dynamics Dataset of Glycosylated Wild-Type and Mutant $\alpha$-Galactosidase A for Pharmacoperone Amenability Prediction}
+
+\author{Irene Cazzaniga, Toni Giorgino \\[5mm]
+Istituto di Biofisica, Consiglio Nazionale delle Ricerche}
+
+\date{October 2025}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+Fabry disease is a multi-systemic X-linked lysosomal storage disorder caused by deficient activity of $\alpha$-galactosidase A (\agal), a dimeric glycoprotein that hydrolyses terminal $\alpha$-galactose residues from glycosphingolipids and related substrates. Here we present a curated molecular dynamics (MD) dataset that captures the conformational dynamics of wild-type and mutant \agal\ in both apo and pharmacoperone-bound states, with explicit representation of N-glycans and the small-molecule chaperone migalastat. Starting from a standardized, re-glycosylated crystal structure, we generated six systems (apo and migalastat-bound wild type, N215S and R301Q mutants), each simulated for 1~$\mu$s in triplicate, yielding an aggregate of 18~$\mu$s of all-atom trajectories. All systems were prepared with a unified protocol for glycan placement, mutant construction, ligand parameterization, protonation, solvation, and equilibration, and were propagated with the CHARMM36 force field under fully documented conditions. The data package comprises raw topologies and trajectories, filtered trajectories for analysis, and processed tables of root-mean-square deviation (RMSD), root-mean-square fluctuation (RMSF), and ligand residence times, organized according to a consistent naming scheme. This resource is designed to support reuse in quantitative studies, including the training and benchmarking of machine-learning models for migalastat amenability prediction and for deriving dynamical descriptors of protein, glycan and ligand behavior in Fabry disease mutants.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background \& Summary}
+
+Fabry disease is a multi-systemic, X-linked, lysosomal storage disease caused by decreased activity of \agal, an enzyme that catalyses the removal of the terminal $\alpha$-galactose residue from polysaccharides, glycolipids and glycopeptides.
+The defect of \agal\ causes lysosomal accumulation of neutral glycosphingolipids, in particular globotriaosylceramide (GL-3), resulting in chronic pain, vascular degeneration, cardiac abnormalities and other symptoms that complicate early diagnosis \cite{sugawara_structural_2008}.
+Hundreds of pathogenic variants in the GLA gene (Xq22.1) have been reported, most of which are missense mutations but also deletions and insertions; these substitutions often yield partially unfolded or unstable proteins with reduced or absent enzymatic activity \cite{matsuzawa_fabry_2005}.
+
+Two classes of specific therapies are currently available \cite{nowicki_review_2024}:
+(i) intravenous enzyme replacement therapy, consisting in the infusion of functional \agal\ or equivalent recombinant proteins; and
+(ii) oral pharmacological chaperone therapy with migalastat, a small iminosugar that binds the active site of susceptible variants, stabilizing partially misfolded proteins during folding and trafficking (Figure~\ref{fig:DGJ}).
+Migalastat treatment is attractive because it is less invasive than enzyme replacement, but it is indicated only for a subset of \emph{amenable} mutations for which binding of the chaperone restores sufficient activity.
+Databases of migalastat amenability are available to support variant-level treatment decisions \cite{amenability}, but must be continually updated as new variants and biochemical data emerge.
+
+Most structural information on \agal\ is based on static X-ray structures deposited in the Protein Data Bank (PDB), frequently obtained from partially deglycosylated constructs.
+As a result, N-glycans are incompletely represented, and ligand dynamics are absent.
+Static models provide limited insight into the flexibility, stability and long-timescale behavior of wild-type and mutant enzymes under conditions relevant for pharmacoperone binding and release.
+They also do not directly provide the time-resolved descriptors needed to train machine-learning (ML) models designed to predict migalastat amenability or to distinguish stabilizing from destabilizing variants.
+
+The present work addresses this gap by releasing a standardized, microsecond-scale MD dataset of glycosylated wild-type and mutant \agal\ systems, designed from the outset for reuse.
+Starting from a single, well-characterized PDB structure, we re-glycosylated the protein using a commonly observed N-glycan core, generated pharmacologically relevant mutants and ligand-bound states, and propagated multi-replica trajectories under a single, fully documented protocol.
+The resulting dataset emphasizes: (i) explicit and homogeneous representation of N-glycosylation, (ii) reproducible system preparation for both apo and holo states, (iii) inclusion of clinically relevant Fabry variants, and (iv) systematic post-processing into machine-learning-ready descriptors.
+
+We focus on six systems comprising apo and migalastat-bound (holo) wild-type \agal\ and two clinically relevant mutants, N215S and R301Q, each simulated for 1~$\mu$s in three independent replicas (Table~\ref{tab:simulations}).
+N215S lies on the protein surface at an N-glycosylation site; in the mutant, the corresponding glycan is absent, reducing the number of N-glycans from six to four per dimer and impacting solubility and secretion.
+R301Q is located on a loop at the dimer interface and is associated with cardiac-variant Fabry disease phenotypes.
+Both mutants are considered migalastat amenable and thus constitute relevant test cases for pharmacoperone responsiveness \cite{oder_-galactosidase_2017, sheng_two_2020, kugan_fabry_2024,fan_accelerated_1999, ishii_mutant_2007, brady_diagnosing_2015}.
+
+Rather than proposing new biological mechanisms, we present this dataset as a reusable resource.
+All build scripts, simulation inputs and analysis notebooks are openly available in a dedicated GitHub repository, while the full trajectories and topologies are deposited on Zenodo with a citable DOI.
+Processed analysis outputs (RMSD, RMSF and residence-time tables) are provided as consistently annotated comma-separated value (CSV) files, enabling immediate integration into downstream workflows for ML, comparative dynamics or method development.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}
+
+This section details the preparation of starting structures, construction of glycosylated and ligand-bound systems, mutant definition, simulation protocols and post-processing steps used to generate the dataset.
+All operations beyond initial model selection are implemented as scripts and notebooks in the repository \url{https://github.com/giorginolab/aGAL-MD}, providing complete provenance.
+
+\subsection{System preparation}
+
+\subsubsection{Protein structure}
+
+\agal\ is a homo-dimeric enzyme in which each monomer consists of an N-terminal domain containing the active site and a C-terminal domain.
+Experimentally determined dimer structures are available in the PDB under various conditions and with different ligands.
+For the present dataset, model 3GXT was selected as the starting structure; this entry corresponds to human \agal\ complexed with 1-deoxygalactonojirimycin, a stereochemical variant of migalastat \cite{lieberman_effects_2009}.
+
+The amino-acid sequence of each monomer in the simulated systems is reported in Table~\ref{tab:sequence}, with N-glycosylation sites highlighted.
+In all systems, the dimeric assembly of 3GXT was preserved, including the relative arrangement of the two active sites and the dimer interface.
+
+\begin{table}[tbp]
+    \centering
+    \begin{tabular}{cl}
+    \toprule
+1--50    &\texttt{LDNGLARTPTMGWLHWERFMCNLDCQEEPDSCISEKLFMEMAELMVSEGW}\\
+51--100  &\texttt{KDAGYEYLCIDDCWMAPQRDSEGRLQADPQRFPHGIRQLANYVHSKGLKL}\\
+101--150 &\texttt{GIYADVG\textcolor{red}{N}KTCAGFPGSFGYYDIDAQTFADWGVDLLKFDGCYCDSLENLA}\\
+151--200&
+\texttt{DGYKHMSLAL\textcolor{red}{N}RTGRSIVYSCEWPLYMWPFQKP\textcolor{red}{N}YTEIRQYCNHWRNFAD}\\
+201--250 &\texttt{IDDSWKSIKSILDWTSFNQERIVDVAGPGGWNDPDMLVIGNFGLSWNQQV}\\
+251--300 &\texttt{TQMALWAIMAAPLFMSNDLRHISPQAKALLQDKDVIAINQDPLGKQGYQL}\\
+301--350 &\texttt{RQGDNFEVWERPLSGLAWAVAMINRQEIGGPRSYTIAVASLGKGVACNPA}\\
+351--398 &\texttt{CFITQLLPVKRKLGFYEWTSRLRSHINPTGTVLLQLENTMQMSLKDLL}\\
+\bottomrule
+    \end{tabular}
+    \caption{Sequence of each \agal\ monomer simulated (from PDB ID: 3GXT).
+        Residues glycosylated in the wild-type protein are marked in red.}
+    \label{tab:sequence}
+\end{table}
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/structure.png}
+    \caption{Post-translational modifications of \agal.
+    The two subunits are shown in cyan and aquamarine.
+    The crystallographic glycans are replaced by standardized N-glycan cores (yellow; see Figure~\ref{fig:glycans}), and the crystallographic ligand (NOJ) is replaced by migalastat (DGJ, red).}
+    \label{fig:protein}
+\end{figure*}
+
+\subsubsection{Protein glycosylation}
+
+Each \agal\ monomer contains three N-glycosylation sites, namely N139, N192 and N215.
+N139 and N215 contribute to protein solubility, whereas N192 improves secretion \cite{stokes_prediction_2020}.
+Crystallographic structures of \agal\ report heterogeneous and often truncated glycan chains, reflecting deglycosylation steps used during crystallization.
+To provide a uniform and explicit treatment of glycosylation across all systems, the glycans present in 3GXT were removed and replaced by a common N-glycan core at each site.
+
+Reglycosylation was performed using the online tool GlycoShape (\url{https://glycoshape.org/reglyco}) applied to PDB ID 3GXT.
+The Man($\alpha$1-3)[Man($\alpha$1-6)]Man($\beta$1-4)GlcNAc($\beta$1-4)GlcNAc structure (glycan ID G0026MO) was selected as a representative human N-glycan core and attached at all N-glycosylation sites identified by the tool.
+This yielded a dimer with six identical N-glycans in the wild-type systems.
+The final glycan structure used is illustrated in Figure~\ref{fig:glycans}.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[bb = 34 617 346 772,clip=true,width=0.5\linewidth]{immagini/glycan_labels.pdf}
+    \caption{N-glycan core used in all glycosylated systems (glycan ID: G0026MO).
+    Blue squares represent N-acetylglucosamine (BGLCNA), green circles represent mannose (BMAN).
+    N-glycosylation occurs at the N-acetylglucosamine site.
+    Numbers in parentheses indicate the residue IDs adopted in the simulated structures.}
+    \label{fig:glycans}
+\end{figure}
+
+\subsubsection{Migalastat ligand}
+
+Migalastat (1‑Deoxygalactonojirimycin, abbreviated DGJ) is an iminosugar analog of the terminal galactose moiety of GL-3, the physiological substrate of \agal.
+It binds reversibly to the active site of \agal\ and can promote correct folding and trafficking of partially misfolded variants in the endoplasmic reticulum.
+Once the lysosome is reached, the acidic pH favors migalastat dissociation, allowing substrate binding \cite{li_mechanistic_2024}.
+
+In the holo systems, the crystallographic ligand in 3GXT (NOJ) was replaced by migalastat, preserving the bound pose in the active site (Figure~\ref{fig:DGJ}).
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=0.5\linewidth]{immagini/DGJ.pdf}
+    \caption{Chemical structure of migalastat (DGJ), the pharmacological chaperone used in Fabry disease therapy.}
+    \label{fig:DGJ}
+\end{figure*}
+
+\subsubsection{Mutant selection}
+
+Fabry disease is associated with a long list of mutations, often associated with distinct clinical phenotypes and residual activities.
+The present dataset focuses on two clinically relevant mutants, N215S and R301Q, in addition to the wild-type sequence, chosen as an initial set for workflow development and as representative migalastat-amenable variants.
+
+N215S is located on the surface of the protein at an N-glycosylation site.
+In the mutant, the NXS/T motif is disrupted and the corresponding glycan is absent, leaving the dimer with four instead of six N-glycans.
+This mutation is associated with late-onset or non-classic Fabry phenotypes and reduced \agal\ activity, and has been reported as migalastat amenable in several studies \cite{oder_-galactosidase_2017, sheng_two_2020, kugan_fabry_2024}.
+
+R301Q lies on a loop at the dimer interface and is often labeled as a cardiac-variant mutation with low residual activity.
+It is also considered migalastat amenable \cite{fan_accelerated_1999, ishii_mutant_2007, brady_diagnosing_2015}.
+Both mutations were introduced symmetrically into the two monomers of the dimer.
+Their positions relative to the active site and N-glycans are shown in Figure~\ref{fig:mutants}.
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/mutants.png}
+    \caption{Location of the mutated residues in the \agal\ dimer.
+    One monomer (chain A) is shown in cyan.
+    Mutated residues N215S and R301Q are shown in magenta and applied symmetrically to both monomers.
+    Residue 215 is also an N-glycosylation site; in the N215S mutant, the corresponding glycan (yellow) is absent.}
+    \label{fig:mutants}
+\end{figure*}
+
+\subsection{Simulation protocol}
+
+All subsequent steps in system construction and simulation are implemented as scripts and notebooks in the GitHub repository \url{https://github.com/giorginolab/aGAL-MD}, ensuring that each system in the dataset was generated with the same protocol.
+In brief, the workflow comprises:
+\begin{enumerate}
+    \item Run \verb+mol_prep_Fabry.ipynb+ in the \texttt{functions} folder to assemble the system: attach the standardized glycans at N139, N192 and (for wild type and R301Q) N215; introduce the desired mutation (wild type, N215S or R301Q); construct apo and holo variants by removing or retaining migalastat; and set the intended simulation length.
+    \item Equilibrate the solvated and ionized system using HTMD-provided functions.
+    \item Run \verb+production_prep.py+ in the \texttt{functions} folder to prepare production MD input files.
+    \item Execute the production simulations using HTMD and ACEMD under uniform conditions.
+    \item (Optional) generate filtered trajectories by removing water and saving every tenth frame using \verb+filter_prod.py+, to facilitate analysis.
+    \item Perform initial RMSD and RMSF analyses by running the \verb+evaluation.ipynb+ notebook.
+\end{enumerate}
+
+Further usage instructions are provided in the repository \verb+README+.
+
+\subsubsection{Force field and parameterization}
+
+The six systems summarized in Table~\ref{tab:simulations} were modeled with the CHARMM36 all-atom force field \cite{charmm36}.
+Glycan parameters and topologies were taken from the CHARMM36 glycopeptide parameter file \verb+toppar_all36_carb_glycopeptide.str+.
+Migalastat was parameterized using the CHARMM General Force Field (CGenFF, program version 4.0) via the ParamChem online service \cite{vanommeslaeghe_automation_2012}.
+Penalty scores were below 10 for both bonded and charge parameters, indicating acceptable transferability for routine MD.
+
+\subsubsection{Solvation, protonation state and equilibration}
+
+System setup followed the procedure implemented in \verb+production_prep.py+ and described in \cite{proteinprepare}.
+Each system was prepared at pH~7, corresponding to conditions where migalastat binding to \agal\ is favored.
+Complexes were solvated with explicit TIP3 water and neutralized with sodium and potassium ions to a final ionic strength of 0.15~M.
+
+Energy minimization was performed for 1000 steps prior to equilibration.
+Equilibration runs were carried out in the NPT ensemble at 300~K for 50~ns, allowing relaxation of solvent, ions, glycans and side chains while preserving the overall protein fold.
+
+\subsubsection{Production simulations}
+
+Production MD simulations were performed in the NVT ensemble at 300~K.
+Each production run had a length of 1~$\mu$s, yielding microsecond-scale trajectories suitable for capturing inter-domain motions and ligand dissociation events.
+For each of the six systems, three independent replicas with distinct initial velocities were generated.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccc}
+    \toprule
+      Structure   & Replicas & Individual run length ($\mu$s) \\
+      \midrule
+       apo (wild type)   & 3 & 1 \\
+       apo\_N215S        & 3 & 1\\
+       apo\_R301Q        & 3 & 1\\
+       \midrule
+       DGJ (wild-type holo) & 3 & 1 \\
+       DGJ\_N215S        & 3 & 1 \\
+       DGJ\_R301Q        & 3 & 1 \\
+       \bottomrule
+    \end{tabular}
+    \caption{Simulated systems included in the dataset.
+    Each structure was simulated in triplicate, yielding a total aggregate simulation time of 18~$\mu$s.}
+    \label{tab:simulations}
+\end{table}
+
+All simulation parameters (integration time-step, constraints, cutoff schemes, thermostats and barostats) are stored in the input files distributed in the repository, enabling exact replication.
+
+\subsection{Post-simulation processing}
+
+After simulation, a standardized post-processing pipeline was applied to all trajectories to generate quality-control plots and machine-learning-ready descriptors.
+This section describes the analysis steps rather than their biological interpretation.
+
+First, each trajectory was visually inspected in Visual Molecular Dynamics (VMD) \cite{HUMP96} to confirm that the run completed successfully (presence of the ``Simulation completed!'' message in ACEMD output) and that no artifacts such as unfolding, loss of covalent bonds or unrealistic glycan motion were present.
+Subsequently, RMSD and RMSF-based analyses were performed to quantify stability and local flexibility of protein, glycans and ligands.
+
+Both RMSD and RMSF were computed with the MoleculeKit projection package \cite{doerr2016htmd}, using the \textit{MetricRmsd} and \textit{MetricFluctuation} classes.
+For RMSD, the reference structure was chosen as the first frame of each trajectory.
+For RMSF, the reference was the structure obtained by averaging atomic positions over the full trajectory.
+In all cases, alignment was carried out on protein C$\alpha$ atoms, excluding water, ions, glycans and ligands from the fitting.
+
+RMSD was used to monitor global deviations and to derive ligand residence times, defined based on a distance threshold from the binding pocket.
+RMSF was used to characterize local flexibility profiles of protein residues, glycan residues and ligands.
+Values were stored as CSV tables for reuse, as described below.
+The corresponding scripts and notebook (\verb+evaluation.ipynb+) are distributed in the GitHub repository.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data Records}
+
+The dataset comprises raw simulation files (topologies and trajectories), filtered trajectories for analysis, and tabulated observables derived from RMSD, RMSF and ligand residence-time calculations.
+All input structures, simulation protocols, intermediate files, analysis scripts and processed datasets are openly available in the GitHub repository at \url{https://github.com/giorginolab/aGAL-MD}.
+Full trajectories and topology files are deposited on Zenodo with DOI \url{10.5281/zenodo.17463313}.
+
+\subsection{Topology and trajectory files}
+
+For each system listed in Table~\ref{tab:simulations} and each replica, the following primary files are provided:
+\begin{itemize}
+    \item a Protein Structure File (\verb+.psf+) containing the full topology, including protein, glycans, ligands (if present), ions and solvent;
+    \item one or more trajectory files (\verb+.dcd+ or \verb+.xtc+) storing the time series of atomic coordinates for the corresponding production simulation.
+\end{itemize}
+
+Files are organized in system-specific directories reflecting the structure name and replica index, as documented in the repository.
+Filtered trajectories, in which water molecules are removed and every tenth frame is retained, are also provided to facilitate rapid analysis and visualization.
+
+\subsection{Processed tables and plots}
+
+The GitHub repository includes a \texttt{results} folder containing all outputs produced by the \verb+evaluation.ipynb+ notebook:
+\begin{itemize}
+    \item a \texttt{tables} subfolder with CSV files storing RMSD and RMSF values for selected atom subsets;
+    \item a \texttt{plots} subfolder with graphical representations of RMSD and RMSF profiles, suitable for quick inspection and reuse.
+\end{itemize}
+
+The \verb|rmsd.py| and \verb|rmsf.py| analysis functions require three mandatory inputs: a filename string, a topology file and a trajectory file.
+If a CSV file corresponding to a given filename does not already exist, the function computes the requested metric and writes the results to disk.
+Metric tables follow the naming scheme:
+\begin{itemize}
+    \item \texttt{filename\_rmsd.csv} for RMSD data;
+    \item \texttt{filename\_rmsf.csv} for RMSF data.
+\end{itemize}
+
+Here, \texttt{filename} encodes the system and the structural subset on which the metric is computed.
+It is systematically constructed from four components separated by underscores: structure, replica, selection and segment identifier (segid).
+The metric suffix (\texttt{rmsd.csv} or \texttt{rmsf.csv}) is appended automatically by the functions.
+An example of the mapping from simulation components to filenames is provided in Table~\ref{tab:tables}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccccc}
+    \toprule
+      Structure & Replica & Selection & Segid & Metric  & File \\
+      \midrule
+         apo    &  1      & CA        & P0    & RMSD & \verb+apo_1_CA_P0_rmsd.csv+\\
+         apo    &  1      & CA        & P1    & RMSD & \dots \\
+        
+         apo    &  1      & lig       & P0    & RMSD & \\
+         apo    &  1      & lig       & P1    & RMSD & \\
+        \midrule
+         apo    &  1      & CA        & P0    &  RMSF & \verb+apo_1_CA_P0_rmsf.csv+ \\
+         apo    &  1      & CA        & P1    &  RMSF & \dots \\
+         apo    &  1      & gly       & P2    &  RMSF & \\
+         apo    &  1      & gly       & P3    &  RMSF & \\
+         apo    &  1      & gly       & P4    &  RMSF & \\
+         apo    &  1      & gly       & P5    &  RMSF & \\
+         apo    &  1      & gly       & P6    &  RMSF & \\
+         apo    &  1      & gly       & P7    &  RMSF & \\
+    \bottomrule  
+    \end{tabular}
+    \caption{Example of filenames used for RMSD and RMSF tables.
+    To avoid redundancies, only the outputs for a single structure and replica (apo\_1) are shown here.
+    The remaining systems follow the same convention and are listed in Table~\ref{tab:simulations}.}
+    \label{tab:tables}
+\end{table}
+
+The internal organization of the RMSD and RMSF tables is summarized in Table~\ref{tab:RMSD_F}.
+For RMSD, time is reported in nanoseconds and the instantaneous root-mean-square deviation in \AA.
+For RMSF, the average root-mean-square fluctuation per residue is reported, together with residue and segment identifiers.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccl}
+    \toprule
+        Metric file        &   Column & Unit & Description \\
+    \midrule
+        \dots\texttt{\_rmsd.csv}    &    time  &  ns  & Simulation time \\
+                    & rmsd     &  \AA & Instantaneous root-mean-square deviation \\
+    \midrule
+        \dots\texttt{\_rmsf.csv}   & rmsf & \AA & Average root-mean-square fluctuation \\
+                   & resid &    & Residue ID \\
+                   & segid &    & Segment ID \\
+    \bottomrule
+    \end{tabular}
+    \caption{Interpretation of the columns in the RMSD and RMSF tables.}
+    \label{tab:RMSD_F}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Validation}
+
+This section documents the tests performed to verify that the simulations are physically reasonable and that the dataset is suitable for quantitative analyses, rather than to provide mechanistic conclusions.
+Validation is based on visual inspection of trajectories, RMSD and RMSF profiles of protein and glycans, and an analysis of migalastat residence times in the holo systems.
+
+\subsection{Visual inspection of trajectories}
+
+For each system and replica, the trajectory was examined in VMD to ensure that:
+(i) the simulation completed successfully according to ACEMD output;
+(ii) the overall fold of the protein remained stable over the microsecond timescale; and
+(iii) glycans exhibited mobile but chemically reasonable behavior.
+
+Across systems and replicas, a shared pattern of motion was observed: in most cases, the monomers undergo relative rotations around the dimer interface while maintaining dimer integrity.
+In one replica of the DGJ\_N215S system (DGJ\_N215S\_3), this motion led to partial separation of the monomers, consistent with a destabilizing effect of the mutation at an N-glycosylation site.
+These behaviors are readily visualized from the trajectories and are compatible with expectations for surface mutations and glycan-mediated stabilization.
+
+\subsection{Protein RMSD and RMSF}
+
+RMSD and RMSF were computed separately for protein, glycans and ligands.
+For protein, C$\alpha$ atoms of each monomer were used to quantify global and local stability.
+Alignment was performed on protein C$\alpha$ atoms, so that RMSD reports deviations relative to the initial conformation, while RMSF profiles capture per-residue fluctuations around the time-averaged structure.
+
+Protein RMSD traces for all monomers and replicas are shown in Figure~\ref{fig:rmsd_protein}.
+Monomers belonging to the same replica exhibit similar but not identical RMSD trajectories, and larger differences are observed between replicas, as expected from stochastic sampling.
+After an initial equilibration period, RMSD values remain within a stable range, supporting the structural stability of the dimer on the simulated timescale.
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/rmsd_CA_sep.pdf}
+    \caption{RMSD of protein monomers computed from C$\alpha$ atoms.
+    Monomers belonging to the same replica share the same color, illustrating intra-replica similarity and inter-replica variability.}
+    \label{fig:rmsd_protein}
+\end{figure*}
+
+RMSF profiles for protein C$\alpha$ atoms are reported in Figure~\ref{fig:rmsf_protein}.
+Computing RMSF separately for each monomer removes contributions from inter-monomer distance fluctuations and isolates the intrinsic flexibility of individual subunits.
+All analyzed structures, including the N215S mutant, display peaks of slightly increased flexibility in correspondence with glycosylation sites, reflecting the local mobility of glycan-linked loops.
+Additional regions of interest include a peak between residues 52--62, which is higher in both the wild-type DGJ and the R301Q mutant, and a segment spanning residues 242--262, which exhibits variability among replicas of the same structure.
+The overall profiles are consistent with known flexible regions in \agal\ and indicate that the simulations do not produce unexpected rigidification or unfolding.
+
+\begin{figure*}[tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/rmsf_CA_sep_by_segid.pdf}
+    \caption{RMSF of protein monomers computed from C$\alpha$ atoms.
+    Monomers from the same replica are colored identically.
+    Peaks highlight flexible loops and regions near glycosylation sites.}
+    \label{fig:rmsf_protein}
+\end{figure*}
+
+\subsection{Glycan flexibility}
+
+Glycan dynamics were assessed using RMSF of glycan heavy atoms, computed separately for each glycan in each monomer.
+Because glycans are attached to the protein by a single covalent bond, RMSF reports the amplitude of their conformational excursions relative to the protein frame.
+
+As shown in Figure~\ref{fig:rmsf_glycan}, RMSF values generally increase along the glycan chain with increasing distance from the N-glycosylation site, consistent with higher mobility of distal sugar residues.
+In some cases, pairs of glycans attached to the same residue on the two monomers display similar behavior, though apparent symmetry can also arise from the high flexibility and sampling of multiple conformations.
+The observed patterns confirm that the reglycosylated cores remain attached and behave as expected for flexible N-glycans in aqueous solution.
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/rmsf_gly_sep.pdf}
+    \caption{RMSF of glycan residues attached at positions 139, 192 and 215.
+    Each plot shows three pairs of glycans (same color) symmetrically distributed between the two monomers.
+    In the N215S mutant, the N-glycan at position 215 is absent.}
+    \label{fig:rmsf_glycan}
+\end{figure*}
+
+\subsection{Migalastat residence times}
+
+In the holo systems, migalastat dynamics were characterized by monitoring ligand RMSD relative to the bound pose.
+A distance-based criterion was used to define ligand dissociation events: migalastat was considered to have left the binding pocket when its RMSD exceeded 5~\AA.
+The time of the first such event in each monomer was taken as the ligand residence time.
+
+Visual inspection indicated that at least one ligand molecule dissociates from each dimer during the 1~$\mu$s simulations, typically within tens of nanoseconds.
+This qualitative behavior is confirmed by the ligand RMSD traces shown in Figure~\ref{fig:rmsd_migalastat}.
+Residence times for each system, replica and monomer are summarized in Table~\ref{tab:residence_time}.
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{immagini/rmsd_lig_sep.pdf}
+    \caption{RMSD of individual migalastat molecules relative to the initial bound pose.
+    Each monomer contains one ligand; pairs of ligands from the same replica share the same color.}
+    \label{fig:rmsd_migalastat}
+\end{figure*}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+    \toprule
+    System  & Replica & DGJ & Time (ns) \\
+    \midrule
+    DGJ        & 1       & 1   & 60.1      \\
+    DGJ        & 1       & 2   & ---       \\
+    DGJ        & 2       & 1   & 48.9      \\
+    DGJ        & 2       & 2   & 93.8      \\
+    DGJ        & 3       & 1   & 47.3      \\
+    DGJ        & 3       & 2   & 5.9       \\
+\midrule
+    DGJ\_N215S & 1       & 1   & 35.6      \\
+    DGJ\_N215S & 1       & 2   & ---       \\
+    DGJ\_N215S & 2       & 1   & 30.7      \\
+    DGJ\_N215S & 2       & 2   & 0.9       \\
+    DGJ\_N215S & 3       & 1   & 44.6      \\
+    DGJ\_N215S & 3       & 2   & ---       \\
+\midrule
+    DGJ\_R301Q & 1       & 1   & 31.6      \\
+    DGJ\_R301Q & 1       & 2   & 1.1       \\
+    DGJ\_R301Q & 2       & 1   & 30.2      \\
+    DGJ\_R301Q & 2       & 2   & 22.2      \\
+    DGJ\_R301Q & 3       & 1   & 38.5      \\
+    DGJ\_R301Q & 3       & 2   & 25.8      \\
+    \bottomrule
+\end{tabular}
+\caption{Migalastat residence times in each holo structure, replica and monomer.
+Residence time is defined as the first time at which ligand RMSD is greater than or equal to 5~\AA.
+``---'' indicates no exit event within the 1~$\mu$s trajectory.}
+\label{tab:residence_time}
+\end{table}
+
+Across replicas, both wild-type and mutant systems exhibit ligand dissociation events on sub-microsecond timescales.
+The R301Q mutant consistently displays shorter residence times and more frequent dissociation of both ligands than the wild-type and N215S systems, indicating that the simulations capture differences in ligand stability between variants.
+These trends confirm that the dataset contains physically meaningful ligand-binding dynamics suitable for quantitative analyses, including amenability prediction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Usage Notes}
+
+The dataset is designed for straightforward reuse in both mechanistic and data-driven studies.
+This section summarizes practical aspects of data access, naming conventions and available code.
+
+\subsection{Accessing and interpreting the data}
+
+Raw trajectories and topologies are available from Zenodo (\url{10.5281/zenodo.17463313}), while all scripts, notebooks and processed outputs are hosted on GitHub at \url{https://github.com/giorginolab/aGAL-MD}.
+Users interested in computing additional observables or re-running analyses can clone the repository, download the corresponding Zenodo archive and follow the instructions in the \verb+README+ file.
+
+For quick exploration, the \verb+evaluation.ipynb+ notebook illustrates how to load trajectories, compute RMSD and RMSF for different selections (protein, glycans, ligands), and reproduce the plots included in this manuscript.
+The notebook relies on the \verb|rmsd.py| and \verb|rmsf.py| helper functions, which implement the standard naming scheme described in Table~\ref{tab:tables} and the column organization reported in Table~\ref{tab:RMSD_F}.
+
+When interpreting the CSV tables, users should note that:
+\begin{enumerate}
+    \item ``Structure'' refers to the simulated system (for example, apo, apo\_N215S, DGJ, DGJ\_R301Q) as defined in Table~\ref{tab:simulations}.
+    \item ``Replica'' identifies the replica index (1--3) for a given structure.
+    \item ``Selection'' specifies the atom subset used for metric calculation (e.g., \texttt{CA} for protein C$\alpha$ atoms, \texttt{gly} for glycans, \texttt{lig} for ligands).
+    \item ``Segid'' labels individual subunits or molecules (e.g., P0 or P1 for protein monomers, distinct identifiers for glycans and ligands).
+\end{enumerate}
+
+These conventions are enforced automatically by the analysis scripts, ensuring that any newly generated descriptors produced with the same functions will adhere to the same consistent labeling.
+
+\subsection{Code availability}
+
+All code used to generate, simulate and analyze the systems is provided in the GitHub repository cited above.
+This includes:
+\begin{itemize}
+    \item Jupyter notebooks for system preparation (\verb+mol_prep_Fabry.ipynb+) and analysis (\verb+evaluation.ipynb+);
+    \item Python scripts for production setup (\verb+production_prep.py+), trajectory filtering (\verb+filter_prod.py+), and metric calculation (\verb|rmsd.py|, \verb|rmsf.py|);
+    \item configuration files and parameter sets for HTMD/ACEMD simulations.
+\end{itemize}
+
+The repository is released under an open license, allowing users to adapt the workflow to additional mutants, ligands or descriptors, and to integrate the data and scripts into custom pipelines for machine-learning model development.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgments}
+
+This work was conducted as part of a project funded by the Partenariato Esteso ``Health Extended ALliance for Innovative Therapies, Advanced Lab-research, and Integrated Approaches of Precision Medicine -- HEAL ITALIA -- PE 00000019'', within the resources of the Piano Nazionale di Ripresa e Resilienza (PNRR) Missione 4 ``Istruzione e Ricerca'' -- Componente 2 ``Dalla Ricerca all'Impresa'' -- Investimento 1.3, funded by the European Union -- NextGenerationEU -- under the public call of the Ministry of University and Research (MUR) n.~341 of 15.03.2022 (CUP Spoke leader: Università degli Studi di Milano-Bicocca -- CUP H43C22000830006 -- Spoke 5 ``Next-Gen Therapeutics'').
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Abbreviations}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{cl}
+\toprule
+\textbf{Abbreviation} & \textbf{Meaning} \\
+\midrule
+\agal\ & $\alpha$-galactosidase A \\
+DGJ & 1-Deoxygalactonojirimycin (Migalastat) \\
+MD & Molecular dynamics \\
+RMSD & Root-mean-square deviation \\
+RMSF & Root-mean-square fluctuation \\
+PDB & Protein Data Bank \\
+PDB ID & Protein Data Bank identifier \\
+WT & Wild type \\
+HTMD & High-Throughput Molecular Dynamics \\
+NVT & Constant volume and temperature ensemble \\
+NPT & Constant pressure and temperature ensemble \\
+CSV & Comma-separated values \\
+PSF & Protein Structure File \\
+DCD & A widely used MD trajectory format \\
+VMD & Visual Molecular Dynamics \\
+N-glycan & N-linked glycan \\
+\bottomrule
+\end{tabular}
+\\[3mm]
+Table of abbreviations used throughout the manuscript.
+\end{table}
+
+\printbibliography
+
+\end{document}
+
