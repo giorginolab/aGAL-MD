@@ -1,13 +1,8 @@
-#ENV = htmd
-
-#run within folder
-#ro call multiple folders/ : for dir in *_2/; do [ -d "$dir" ] || continue; echo "Entering $dir"; (cd "$dir" && python ../../functions/production_prep.py); done
-
-
 from acemd.protocols import setup_production
 import os
 
 def main():
+    """Set up production simulations from an equilibration directory."""
     folder_work = os.getcwd()           # Use current working directory
     prod_run = '1 us'                   # Default production run length
     prod_temp = 300                     # Default temperature
@@ -24,3 +19,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Example usage from within a replica folder:
+#   python ../../functions/production_prep.py
+#
+# To run across multiple replica folders from the parent directory:
+#   for dir in *_2/; do
+#       [ -d "$dir" ] || continue
+#       echo "Entering $dir"
+#       (cd "$dir" && python ../../functions/production_prep.py)
+#   done

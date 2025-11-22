@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+"""Remove water and subsample production trajectories every 10th frame.
 
-#REMOVE WATER AND SLICE TRAJ EVERY 10th FRAME
+Run this script from the parent folder containing the replica directories
+(e.g., within `3GXT_reglyco/`):
 
-#outside the protein folder (i.e. within 3GXT_reglyco/)
-#python ../functions/filter_prod.py
+    python ../functions/filter_prod.py
+"""
 import sys
 import os
 from moleculekit.molecule import Molecule
@@ -29,10 +31,10 @@ for replica in replica_folders:
         print(f"Skipping {replica}: filtered files already exist.")
         continue
 
-    #works after mol_prep.ipynb
+    # Works after running the system preparation notebook.
     mol = Molecule(psf_path, validateElements=False)
-    mol.read(xtc_path, skip=10) #shorten traj
-    mol.filter('not resname TIP3')  #remove water
+    mol.read(xtc_path, skip=10)  # shorten trajectory
+    mol.filter('not resname TIP3')  # remove water
 
     mol.write(output_psf)
     mol.write(output_xtc)

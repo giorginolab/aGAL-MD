@@ -150,12 +150,12 @@ Once the new structure was generated,  it is used as a starting point to produce
 From this point on, all the procedures applied have been collected in a GitHub repository,  \url{https://GitHub.com/giorginolab/aGAL-MD}.
 In particular, it includes all the required steps to build a system and run a MD simulation:
 \begin{enumerate}
-    \item Run the \verb+mol_prep_Fabry.ipynb+ in the functions folder of the repository, which allows to build the system by correctly binding glycans to their N-glycosylation sites, insert the desired mutation, provide apo and holo mutants of the same structure, select the length of the simulation.
+    \item Run the \verb+1_mol_prep_fabry.ipynb+ in the functions folder of the repository, which allows to build the system by correctly binding glycans to their N-glycosylation sites, insert the desired mutation, provide apo and holo mutants of the same structure, select the length of the simulation.
     \item Equilibrate the system using HTMD-provided functions.
     \item Run the \verb+production_prep.py+ in the functions folder of the repository.  
     \item Run the production part of the simulation using HTMD-provided functions.
     \item (Optional) generate a filtered system by removing water and skipping every 10th frame for faster analysis using \verb+filter_prod.py+.
-    \item Perform  initial analysis  of RMSD and RMSF by running the \verb|evaluation.ipynb|.
+    \item Perform  initial analysis  of RMSD and RMSF by running the \verb|2_evaluation.ipynb|.
 \end{enumerate}
 
 Further details on how to use the repository are better explained \verb+README+ file present on GitHub.
@@ -194,7 +194,7 @@ The main scopes of this step are (i) to ensure that the dynamics is stable and t
 
 Both RMSD and RMSF are computed with the MoleculeKit projection package \cite{doerr2016htmd}, in particular using \textit{MetricRmsd} and \textit{MetricFluctuation} classes. 
 In case of RMSF, we computed the square root of the mean value of fluctuation for each residue, saving the results as CSV data tables.
-The RMSD and RMSF computation part of the analysis is included in the \verb+evaluation.ipynb+ notebook.  
+The RMSD and RMSF computation part of the analysis is included in the \verb+2_evaluation.ipynb+ notebook.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\clearpage
@@ -206,7 +206,7 @@ This section documents technical verification steps ensuring simulations behaved
 We note a shared pattern of movement between the different structures and replicas, as in the majority of cases, independently from the presence or absence of a mutation, the monomers rotate pivoting at the dimer interface. In system DGJ\_N215S\_3 this motion occurs to the extreme causing the monomers partial separation.
 
 \subsection{Data reading and interpretation}
-For a quantitative analysis of the simulations, we provided a notebook, \verb|evaluation.ipynb|, which includes RMSD and RMSF calculation, data storage and plotting of some examples we presented in this report.
+For a quantitative analysis of the simulations, we provided a notebook, \verb|2_evaluation.ipynb|, which includes RMSD and RMSF calculation, data storage and plotting of some examples we presented in this report.
 All the outputs, tables and plots, of the notebook are present on our GitHub repository in the results folder, which includes:
 \begin{itemize}
     \item \textit{tables} folder, to store the numeric data computed either calling the rmsd or rmsf functions, in form of comma-separated values (CSV) tables.
@@ -424,4 +424,3 @@ Table of abbreviations used throughout the report.
 \printbibliography
 
 \end{document}
-

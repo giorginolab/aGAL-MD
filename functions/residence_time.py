@@ -1,8 +1,9 @@
-#compute ligand residence time
-#call from the parent folder.
-
 import pandas as pd
 import numpy as np
+
+
+# Compute ligand residence time.
+# Call from the parent folder containing `results/tables`.
 
 structures = ['DGJ', 'DGJ_N215S', 'DGJ_R301Q']
 replicas = ['1', '2', '3']

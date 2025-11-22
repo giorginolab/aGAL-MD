@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
-#call outside the protein folder (i.e. within 3GXT_reglyco/)
-#python ../functions/check_end.py equilibration/production
+"""Check whether ACEMD simulations completed successfully for each replica.
+
+Run this script from the parent folder (e.g., within `3GXT_reglyco/`):
+
+    python ../functions/check_end.py equilibration
+    python ../functions/check_end.py production
+"""
 import sys
 import os
 import re
 
 if len(sys.argv) < 2:
-    print("Usage: script.py equilibration|production")
+    print("Usage: check_end.py equilibration|production")
     sys.exit(1)
-line_param = sys.argv[1] #specify equilibration|production check
+line_param = sys.argv[1]  # specify whether to check equilibration or production
 
 replica_folders = sorted([d for d in os.listdir('.') if os.path.isdir(d)])
 if not replica_folders:
     print("No replica folders found in current directory.")
     sys.exit(1)
 
-pattern = re.compile(r"slurm-(\d+)\.out$") #retrive the submission number
+pattern = re.compile(r"slurm-(\d+)\.out$")  # retrieve the submission number
 for replica in replica_folders:
     target_folder = os.path.join(replica, line_param)
     if not os.path.isdir(target_folder):

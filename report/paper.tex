@@ -172,18 +172,20 @@ Their positions relative to the active site and N-glycans are shown in Figure~\r
 
 \subsection{Simulation protocol}
 
-All subsequent steps in system construction and simulation are implemented as scripts and notebooks in the GitHub repository \url{https://github.com/giorginolab/aGAL-MD}, ensuring that each system in the dataset was generated with the same protocol.
-In brief, the workflow comprises:
+All subsequent steps in system construction and simulation are implemented as scripts and notebooks in the GitHub repository \url{https://github.com/giorginolab/aGAL-MD}, ensuring that each system was generated with the same protocol.
+In operational terms, a user reproducing or extending this work would:
 \begin{enumerate}
-    \item Run \verb+mol_prep_Fabry.ipynb+ in the \texttt{functions} folder to assemble the system: attach the standardized glycans at N139, N192 and (for wild type and R301Q) N215; introduce the desired mutation (wild type, N215S or R301Q); construct apo and holo variants by removing or retaining migalastat; and set the intended simulation length.
-    \item Equilibrate the solvated and ionized system using HTMD-provided functions.
-    \item Run \verb+production_prep.py+ in the \texttt{functions} folder to prepare production MD input files.
-    \item Execute the production simulations using HTMD and ACEMD under uniform conditions.
-    \item (Optional) generate filtered trajectories by removing water and saving every tenth frame using \verb+filter_prod.py+, to facilitate analysis.
-    \item Perform initial RMSD and RMSF analyses by running the \verb+evaluation.ipynb+ notebook.
+    \item Activate the HTMD/ACEMD conda environment and run \verb+1_mol_prep_fabry.ipynb+ in the \texttt{functions} folder to assemble the systems.  
+    This notebook attaches standardized N-glycans at N139, N192 and (for wild type and R301Q) N215, applies the desired mutation (wild type, N215S or R301Q), constructs apo and holo variants by removing or retaining migalastat, and writes out \texttt{equilibration} directories for each structure.
+    \item On the target HPC system, launch NPT equilibration jobs from within each \texttt{equilibration} folder using the HTMD/ACEMD scripts provided in the repository (see the \verb+README+ for example \verb+sbatch+ commands).  
+    The optional script \verb+check_end.py+ can be used from the parent directory to verify that each equilibration finished with the ``Simulation completed!'' message.
+    \item Once equilibration has completed, run \verb+production_prep.py+ from each structure\_replica directory to generate the \texttt{production} folders and input files for the microsecond-scale production runs.
+    \item Submit the production simulations from within each \texttt{production} folder using the provided \verb+sbatch_many+ script or equivalent ACEMD job submission, again following the examples in the \verb+README+.
+    \item (Optional) after production completes, generate water-stripped, subsampled trajectories by running \verb+filter_prod.py+ from the parent directory containing the replica folders; this removes TIP3 water and saves every tenth frame for more efficient analysis and visualization.
+    \item Perform initial RMSD and RMSF analyses by running the \verb+2_evaluation.ipynb+ notebook in the \texttt{functions} folder, and, if desired, compute ligand residence times using the \verb+residence_time.py+ script, which operates on the RMSD tables produced by the notebook.
 \end{enumerate}
 
-Further usage instructions are provided in the repository \verb+README+.
+This sequence encapsulates the full protocol from reglycosylated input structures to production trajectories and standardized observables.
 
 \subsubsection{Force field and parameterization}
 
@@ -245,7 +247,7 @@ In all cases, alignment was carried out on protein C$\alpha$ atoms, excluding wa
 RMSD was used to monitor global deviations and to derive ligand residence times, defined based on a distance threshold from the binding pocket.
 RMSF was used to characterize local flexibility profiles of protein residues, glycan residues and ligands.
 Values were stored as CSV tables for reuse, as described below.
-The corresponding scripts and notebook (\verb+evaluation.ipynb+) are distributed in the GitHub repository.
+The corresponding scripts and notebook (\verb+2_evaluation.ipynb+) are distributed in the GitHub repository.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Records}
@@ -472,7 +474,7 @@ This section summarizes practical aspects of data access, naming conventions and
 Raw trajectories and topologies are available from Zenodo (\url{10.5281/zenodo.17463313}), while all scripts, notebooks and processed outputs are hosted on GitHub at \url{https://github.com/giorginolab/aGAL-MD}.
 Users interested in computing additional observables or re-running analyses can clone the repository, download the corresponding Zenodo archive and follow the instructions in the \verb+README+ file.
 
-For quick exploration, the \verb+evaluation.ipynb+ notebook illustrates how to load trajectories, compute RMSD and RMSF for different selections (protein, glycans, ligands), and reproduce the plots included in this manuscript.
+For quick exploration, the \verb+2_evaluation.ipynb+ notebook illustrates how to load trajectories, compute RMSD and RMSF for different selections (protein, glycans, ligands), and reproduce the plots included in this manuscript.
 The notebook relies on the \verb|rmsd.py| and \verb|rmsf.py| helper functions, which implement the standard naming scheme described in Table~\ref{tab:tables} and the column organization reported in Table~\ref{tab:RMSD_F}.
 
 When interpreting the CSV tables, users should note that:
@@ -490,7 +492,7 @@ These conventions are enforced automatically by the analysis scripts, ensuring t
 All code used to generate, simulate and analyze the systems is provided in the GitHub repository cited above.
 This includes:
 \begin{itemize}
-    \item Jupyter notebooks for system preparation (\verb+mol_prep_Fabry.ipynb+) and analysis (\verb+evaluation.ipynb+);
+    \item Jupyter notebooks for system preparation (\verb+1_mol_prep_fabry.ipynb+) and analysis (\verb+2_evaluation.ipynb+);
     \item Python scripts for production setup (\verb+production_prep.py+), trajectory filtering (\verb+filter_prod.py+), and metric calculation (\verb|rmsd.py|, \verb|rmsf.py|);
     \item configuration files and parameter sets for HTMD/ACEMD simulations.
 \end{itemize}
