@@ -29,7 +29,14 @@ Istituto di Biofisica, Consiglio Nazionale delle Ricerche}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Fabry disease is a multi-systemic X-linked lysosomal storage disorder caused by deficient activity of $\alpha$-galactosidase A (\agal), a dimeric glycoprotein that hydrolyses terminal $\alpha$-galactose residues from glycosphingolipids and related substrates. Variant-specific treatment decisions increasingly rely on quantitative predictions of pharmacoperone amenability, yet reproducible protocols for generating standardized, glycosylated molecular dynamics (MD) simulations of \agal\ are scarce. Here we describe a complete and reusable workflow for preparing, simulating and analysing wild-type and mutant \agal\ under apo and pharmacoperone-bound conditions, with explicit N-glycans and the small-molecule chaperone migalastat. The protocol starts from a reglycosylated crystal structure, introduces clinically relevant mutations, constructs apo and holo states, and performs multi-replica, microsecond-scale MD using a single, fully specified pipeline for glycan placement, mutant construction, ligand parameterization, protonation, solvation, equilibration and production. Post-processing steps define standard metrics (RMSD, RMSF, ligand residence times) and a consistent file- and column-naming scheme for downstream analysis. A reference implementation, including scripts, notebooks and example input/output files, is provided in an open repository to facilitate adoption, adaptation and integration into machine-learning workflows for migalastat amenability prediction.
+\textbf{Context:}
+Fabry disease is a multi-systemic X-linked lysosomal storage disorder caused by deficient activity of $\alpha$-galactosidase A (\agal), and variant-specific treatment decisions increasingly rely on quantitative predictions of pharmacoperone amenability.
+However, reproducible protocols for generating standardized, explicitly glycosylated molecular dynamics (MD) simulations of \agal\ remain scarce.
+We present a workflow that builds explicit N-glycosylated wild-type and N215S/R301Q mutant dimers in apo and migalastat-bound forms, generates microsecond-scale trajectories, and outputs RMSD-, RMSF- and ligand-residence descriptors ready for mechanistic and machine-learning studies of pharmacoperone amenability.
+
+\textbf{Methods:}
+Starting from a reglycosylated 3GXT structure prepared with GlycoShape, we construct solvated dimers for wild-type, N215S and R301Q variants in apo and migalastat-bound forms and run 1~$\mu$s production simulations (after NPT equilibration).
+All notebooks, scripts and input files are distributed in a public repository, enabling exact replication of the simulations and straightforward extension of the protocol to additional variants or ligands.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,15 +123,15 @@ N139 and N215 contribute to protein solubility, whereas N192 improves secretion 
 Crystallographic structures of \agal\ report heterogeneous and often truncated glycan chains, reflecting deglycosylation steps used during crystallization.
 To provide a uniform and explicit treatment of glycosylation across all systems, the glycans present in 3GXT were removed and replaced by a common N-glycan core at each site.
 
-Reglycosylation was performed using the online tool GlycoShape (\url{https://glycoshape.org/reglyco}) applied to PDB ID 3GXT.
-The Man($\alpha$1-3)[Man($\alpha$1-6)]Man($\beta$1-4)GlcNAc($\beta$1-4)GlcNAc structure (glycan ID G0026MO) was selected as a representative human N-glycan core and attached at all N-glycosylation sites identified by the tool.
+Reglycosylation was performed applying the GlycoShape ReGlyco  tool \cite{ives_restoring_2024} to PDB ID 3GXT.
+The Man($\alpha$1-3)[Man($\alpha$1-6)]Man($\beta$1-4)GlcNAc($\beta$1-4)GlcNAc structure (glycan ID G00026MO) was selected as a representative human N-glycan core and attached at all N-glycosylation sites identified by the tool.
 This yielded a dimer with six identical N-glycans in the wild-type systems.
 The final glycan structure used is illustrated in Figure~\ref{fig:glycans}.
 
 \begin{figure}[tbp]
     \centering
     \includegraphics[bb = 34 617 346 772,clip=true,width=0.5\linewidth]{immagini/glycan_labels.pdf}
-    \caption{N-glycan core used in all glycosylated systems (glycan ID: G0026MO).
+    \caption{N-glycan core used in all glycosylated systems (glycan ID: G00026MO).
     Blue squares represent N-acetylglucosamine (BGLCNA), green circles represent mannose (BMAN).
     N-glycosylation occurs at the N-acetylglucosamine site.
     Numbers in parentheses indicate the residue IDs adopted in the simulated structures.}
