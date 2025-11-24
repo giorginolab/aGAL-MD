@@ -1,0 +1,13 @@
+Identifier,StructureData,,,,,Polymer EntityData,
+Entry ID,Deposition Date,Ligand,PDB ID,Refinement Resolution (Å),Structure Title,Source Organism,
+"3S5Y","2011-05-23","DGJ","3S5Y","2.105","Pharmacological Chaperoning in Human alpha-Galactosidase","Homo sapiens"
+"3THD","2011-08-18","DGJ","3THD","1.79","Crystal structure of human beta-galactosidase in complex with 1-deoxygalactonojirimycin","Homo sapiens"
+"3TV8","2011-09-19","DGJ","3TV8","2.639","Pharmacological Chaperoning in Human alpha-Galactosidase","Homo sapiens"
+"4CU8","2014-03-17",,"4CU8","2.5","Unravelling the multiple functions of the architecturally intricate Streptococcus pneumoniae beta-galactosidase, BgaA","Streptococcus pneumoniae TIGR4"
+"4D1J","2014-05-02",,"4D1J","1.8","The structure of the GH35 beta-galactosidase Bgl35A from Cellvibrio japonicas in complex with 1-Deoxygalactonojirimycin","Cellvibrio japonicus Ueda107"
+"4DO5","2012-02-09",,"4DO5","1.51","Pharmacological chaperones for human alpha-N-acetylgalactosaminidase","Homo sapiens"
+"4FNS","2012-06-20",,"4FNS","2.6","Crystal structure of GH36 alpha-galactosidase AgaA A355E from Geobacillus stearothermophilus in complex with 1-deoxygalactonojirimycin","Geobacillus stearothermophilus"
+"4UFM","2015-03-17",,"4UFM","2.4","Mouse Galactocerebrosidase complexed with 1-deoxy-galacto-nojirimycin DGJ","Mus musculus"
+"6EUH","2017-10-30",,"6EUH","2","The GH43, Beta 1,3 Galactosidase, BT3683 with galactodeoxynojirimycin","Bacteroides thetaiotaomicron VPI-5482"
+"6TSH","2019-12-20",,"6TSH","2.3","Beta-galactosidase in complex with deoxygalacto-nojirimycin","Escherichia coli"
+"7QQG","2022-01-07",,"7QQG","2.43","Crystal structure of MYORG bound to 1-deoxygalactonojirimycin","Homo sapiens"
