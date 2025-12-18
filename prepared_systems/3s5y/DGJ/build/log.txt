@@ -638,17 +638,25 @@ psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P7
 psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P7
 psfgen) building segment P8
 psfgen) reading residues from pdb file segments/segmentP8.pdb
-psfgen) extracted 2 residues from pdb file
+psfgen) extracted 1 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
 segment complete.
 psfgen) reading coordinates from pdb file segments/segmentP8.pdb for segment P8
+psfgen) building segment P9
+psfgen) reading residues from pdb file segments/segmentP9.pdb
+psfgen) extracted 1 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP9.pdb for segment P9
 psfgen) building segment W0
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW0.pdb
-psfgen) extracted 8344 residues from pdb file
+psfgen) extracted 8350 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -658,7 +666,7 @@ psfgen) building segment W1
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW1.pdb
-psfgen) extracted 5695 residues from pdb file
+psfgen) extracted 5690 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -668,7 +676,7 @@ psfgen) building segment W2
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW2.pdb
-psfgen) extracted 7499 residues from pdb file
+psfgen) extracted 7489 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -678,7 +686,7 @@ psfgen) building segment W3
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW3.pdb
-psfgen) extracted 5355 residues from pdb file
+psfgen) extracted 5353 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -688,7 +696,7 @@ psfgen) building segment W4
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW4.pdb
-psfgen) extracted 1673 residues from pdb file
+psfgen) extracted 1678 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -698,7 +706,7 @@ psfgen) building segment W5
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW5.pdb
-psfgen) extracted 1060 residues from pdb file
+psfgen) extracted 1062 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -708,7 +716,7 @@ psfgen) building segment W6
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW6.pdb
-psfgen) extracted 7842 residues from pdb file
+psfgen) extracted 7833 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -718,7 +726,7 @@ psfgen) building segment W7
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW7.pdb
-psfgen) extracted 5555 residues from pdb file
+psfgen) extracted 5559 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -728,7 +736,7 @@ psfgen) building segment W8
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW8.pdb
-psfgen) extracted 8082 residues from pdb file
+psfgen) extracted 8093 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -738,7 +746,7 @@ psfgen) building segment W9
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW9.pdb
-psfgen) extracted 5717 residues from pdb file
+psfgen) extracted 5712 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -748,7 +756,7 @@ psfgen) building segment W10
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW10.pdb
-psfgen) extracted 1682 residues from pdb file
+psfgen) extracted 1685 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -768,7 +776,7 @@ psfgen) building segment W12
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW12.pdb
-psfgen) extracted 174 residues from pdb file
+psfgen) extracted 173 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -788,7 +796,7 @@ psfgen) building segment W14
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW14.pdb
-psfgen) extracted 178 residues from pdb file
+psfgen) extracted 180 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -798,7 +806,7 @@ psfgen) building segment W15
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentW15.pdb
-psfgen) extracted 107 residues from pdb file
+psfgen) extracted 106 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
@@ -946,19 +954,19 @@ psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:1	  P8
-psfgen) Warning: poorly guessed coordinate for atom H01	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H02	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H03	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H04	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H05	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H06	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H07	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H08	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H09	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:2	  P8
+psfgen) Warning: poorly guessed coordinate for atom H01	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H02	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H03	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H04	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H05	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H06	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H07	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H08	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H09	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:1	  P9
 psfgen) Info: writing psf file structure.psf
 psfgen) total of 193967 atoms
 psfgen) total of 193829 bonds

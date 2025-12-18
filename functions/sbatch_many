@@ -11,13 +11,13 @@ fi
 n=$1
 i=1
 
-jid=$(sbatch --parsable ../../../functions/sbatch_acemd)
-echo Scheduled $jid: sbatch ../../../functions/sbatch_acemd
+jid=$(sbatch --parsable ../../../../functions/sbatch_acemd)
+echo Scheduled $jid: sbatch ../../../../functions/sbatch_acemd
 
 while [[ $i -lt $n ]]; do
     ojid=$jid
-    jid=$(sbatch --parsable --dependency=afternotok:$ojid ../../../functions/sbatch_acemd)
-    echo Scheduled $jid: sbatch --dependency=afternotok:$ojid ../../../functions/sbatch_acemd
+    jid=$(sbatch --parsable --dependency=afternotok:$ojid ../../../../functions/sbatch_acemd)
+    echo Scheduled $jid: sbatch --dependency=afternotok:$ojid ../../../../functions/sbatch_acemd
     i=$((i+1))
 done
 

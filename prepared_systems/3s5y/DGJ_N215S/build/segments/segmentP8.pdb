@@ -10,16 +10,16 @@ HETATM    8  C5  DGJ L   1      37.199  15.278  29.984  0.00  0.00      P8   C
 HETATM    9  N5  DGJ L   1      38.134  15.060  31.069  0.00  0.00      P8   N  
 HETATM   10  C6  DGJ L   1      36.392  14.007  29.767  0.00  0.00      P8   C  
 HETATM   11  O6  DGJ L   1      35.489  13.804  30.851  0.00  0.00      P8   O  
-HETATM   12  C1  DGJ L   2      34.520  57.736  32.670  0.00  0.00      P8   C  
-HETATM   13  C2  DGJ L   2      33.115  57.507  32.116  0.00  0.00      P8   C  
-HETATM   14  O2  DGJ L   2      32.394  56.585  32.936  0.00  0.00      P8   O  
-HETATM   15  C3  DGJ L   2      33.197  57.009  30.672  0.00  0.00      P8   C  
-HETATM   16  O3  DGJ L   2      31.881  56.671  30.190  0.00  0.00      P8   O  
-HETATM   17  C4  DGJ L   2      33.837  58.088  29.798  0.00  0.00      P8   C  
-HETATM   18  O4  DGJ L   2      32.966  59.239  29.703  0.00  0.00      P8   O  
-HETATM   19  C5  DGJ L   2      35.208  58.468  30.354  0.00  0.00      P8   C  
-HETATM   20  N5  DGJ L   2      35.179  58.684  31.797  0.00  0.00      P8   N  
-HETATM   21  C6  DGJ L   2      35.735  59.716  29.677  0.00  0.00      P8   C  
-HETATM   22  O6  DGJ L   2      37.094  59.911  30.078  0.00  0.00      P8   O  
+CONECT    1    2    9
+CONECT    2    1    3    4
+CONECT    3    2
+CONECT    4    2    5    6
+CONECT    5    4
+CONECT    6    4    7    8
+CONECT    7    6
+CONECT    8    6    9   10
+CONECT    9    1    8
+CONECT   10    8   11
+CONECT   11   10
 ENDMDL
 END

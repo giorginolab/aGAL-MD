@@ -209,6 +209,13 @@ segment P8 {
 }
 coordpdb segments/segmentP8.pdb P8
 
+segment P9 {
+	pdb segments/segmentP9.pdb
+	first none
+	last none
+}
+coordpdb segments/segmentP9.pdb P9
+
 segment W0 {
 	auto none
 	pdb segments/segmentW0.pdb

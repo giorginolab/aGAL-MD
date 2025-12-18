@@ -638,12 +638,20 @@ psfgen) Warning: failed to set coordinate for atom H3O	 MAN:6	  P7
 psfgen) Warning: failed to set coordinate for atom H2O	 MAN:6	  P7
 psfgen) building segment P8
 psfgen) reading residues from pdb file segments/segmentP8.pdb
-psfgen) extracted 2 residues from pdb file
+psfgen) extracted 1 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 Info: generating structure...
 segment complete.
 psfgen) reading coordinates from pdb file segments/segmentP8.pdb for segment P8
+psfgen) building segment P9
+psfgen) reading residues from pdb file segments/segmentP9.pdb
+psfgen) extracted 1 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+Info: generating structure...
+segment complete.
+psfgen) reading coordinates from pdb file segments/segmentP9.pdb for segment P9
 psfgen) building segment W0
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
@@ -940,19 +948,19 @@ psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:1	  P8
 psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:1	  P8
-psfgen) Warning: poorly guessed coordinate for atom H01	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H02	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H03	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H04	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H05	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H06	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H07	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H08	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H09	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:2	  P8
-psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:2	  P8
+psfgen) Warning: poorly guessed coordinate for atom H01	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H02	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H03	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H04	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H05	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H06	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H07	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H08	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H09	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H10	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H11	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H12	 DGJ:1	  P9
+psfgen) Warning: poorly guessed coordinate for atom H13	 DGJ:1	  P9
 psfgen) Info: writing psf file structure.psf
 psfgen) total of 194671 atoms
 psfgen) total of 194885 bonds
