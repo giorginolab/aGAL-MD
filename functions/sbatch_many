@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#NOTE: it does not consider already-existing submissions
 #multiple chained submissions for long productions
 
 if [[ $# -lt 1 ]]; then

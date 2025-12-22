@@ -5,4 +5,7 @@
 #SBATCH --gres gpu:1
 #SBATCH -p boost_usr_prod
 
+# Activate your environment
+conda activate htmd
+
 srun acemd
