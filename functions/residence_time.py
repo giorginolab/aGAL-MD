@@ -12,7 +12,7 @@ data_tot = []
 
 for s in structures:
     for r in replicas:
-        for resi in [1, 2]:
+        for resi in ['P0', 'P1']:
             df = pd.read_csv(f'../results/tables/{s}_{r}_lig_{resi}_rmsd.csv')
 
             # rmsd >= 5 is the limit we set to define in/out

@@ -22,4 +22,4 @@ which python
 conda info --envs
 
 # Run your script
-srun python evaluation.py
+srun python 2_evaluation.py
