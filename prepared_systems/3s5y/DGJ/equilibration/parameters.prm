@@ -11,7 +11,9 @@ MASS  -1  CC321 12.01100
 MASS  -1  CC331 12.01100
 MASS  -1     CD 12.01100
 MASS  -1  CG311 12.01100
+MASS  -1  CG314 12.01100
 MASS  -1  CG321 12.01100
+MASS  -1  CG324 12.01100
 MASS  -1    CLA 35.45000
 MASS  -1    CP1 12.01100
 MASS  -1    CP2 12.01100
@@ -38,7 +40,7 @@ MASS  -1   HCP1  1.00800
 MASS  -1   HGA1  1.00800
 MASS  -1   HGA2  1.00800
 MASS  -1   HGP1  1.00800
-MASS  -1  HGPAM1  1.00800
+MASS  -1   HGP2  1.00800
 MASS  -1     HP  1.00800
 MASS  -1    HR1  1.00800
 MASS  -1    HR2  1.00800
@@ -48,7 +50,7 @@ MASS  -1     HT  1.00800
 MASS  -1      N 14.00700
 MASS  -1    NC2 14.00700
 MASS  -1  NC2D1 14.00700
-MASS  -1  NG311 14.00700
+MASS  -1  NG3P2 14.00700
 MASS  -1    NH1 14.00700
 MASS  -1    NH2 14.00700
 MASS  -1    NH3 14.00700
@@ -236,18 +238,22 @@ HT    HT      0.0       1.5139  ! from TIPS3P geometry (for SHAKE w/PARAM)
 HT    OT    450.0       0.9572  ! from TIPS3P geometry
 
 CG311  CG311   222.50     1.5000 ! PROT alkane update, adm jr., 3/2/92
+CG311  CG314   222.50     1.5000 ! PROT alkane update, adm jr., 3/2/92
 CG311  CG321   222.50     1.5380 ! PROT alkane update, adm jr., 3/2/92
+CG311  CG324   222.50     1.5300 ! FLAVOP PIP1,2,3
 CG311  OG311   428.00     1.4200 ! PROT methanol vib fit EMB 11/21/89
 CG311  HGA1    309.00     1.1110 ! PROT alkane update, adm jr., 3/2/92
+CG314  CG321   222.50     1.5380 ! PROT alkane update, adm jr., 3/2/92
+CG314  NG3P2   200.00     1.4900 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha
+CG314  HGA1    309.00     1.1110 ! PROT alkane update, adm jr., 3/2/92
 CG321  CG321   222.50     1.5300 ! PROT alkane update, adm jr., 3/2/92
-CG321  NG311   263.00     1.4740 ! AMINE aliphatic amines
+CG321  CG324   222.50     1.5300 ! FLAVOP PIP1,2,3
 CG321  OG311   428.00     1.4200 ! PROT methanol vib fit EMB 11/21/89
 CG321  HGA2    309.00     1.1110 ! PROT alkane update, adm jr., 3/2/92
-NG311  HGP1    442.00     1.0210 ! MMSM, N-methylmethanesulfonamide and other sulfonamides, xxwy
-NG311  HGPAM1  447.80     1.0190 ! AMINE aliphatic amines
+CG324  NG3P2   200.00     1.4900 ! PIP, piperidine
+CG324  HGA2    284.50     1.1000 ! FLAVOP PIP1,2,3
+NG3P2  HGP2    460.00     1.0060 ! PROT AcProNH2, ProNH2, AcProNHCH3 RLD 4/23/93
 OG311  HGP1    545.00     0.9600 ! PROT EMB 11/21/89 methanol vib fit; og tested on MeOH EtOH,...
-
-CG311  NG311   263.00     1.4740 ! obj01 , from CG314 NG311, penalty= 1
 
 CC3162   NC2D1   320.00  1.430   ! 320.00  1.430   ! par22 NH1 CT1
 
@@ -677,35 +683,52 @@ CG311  CG311  CG311    53.35    111.00    8.00   2.56100 ! PROT alkane update, a
 CG311  CG311  CG321    53.35    111.00    8.00   2.56100 ! PROT alkane update, adm jr., 3/2/92
 CG311  CG311  OG311    75.70    110.10 ! PROT MeOH, EMB, 10/10/89
 CG311  CG311  HGA1     34.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
+CG314  CG311  CG321    53.35    111.00    8.00   2.56100 ! PROT alkane update, adm jr., 3/2/92
+CG314  CG311  OG311    75.70    112.10 ! BUG, from CG324 CG311 OG311, yxu, RNA
+CG314  CG311  HGA1     34.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
 CG321  CG311  CG321    58.35    113.50   11.16   2.561 ! LIPID glycerol
+CG321  CG311  CG324    58.35    110.50   11.16   2.56100 ! FLAVOP PIP1,2,3
 CG321  CG311  OG311    75.70    110.00 ! NA
 CG321  CG311  HGA1     34.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
+CG324  CG311  OG311    75.70    112.10 ! FLAVOP PIP1,2,3
+CG324  CG311  HGA1     26.50    111.80   22.53   2.17900 ! FLAVOP PIP1,2,3
 OG311  CG311  OG311   100.50    117.15 ! DDZ, by ac_aa
 OG311  CG311  HGA1     45.90    108.89 ! PROT MeOH, EMB, 10/10/89
+CG311  CG314  HGA1     34.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
+CG321  CG314  CG321    58.35    113.50   11.16   2.561 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha
+CG321  CG314  NG3P2    40.00    110.00 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha
+CG321  CG314  HGA1     34.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
+NG3P2  CG314  HGA1     45.00    102.30   35.00   2.10100 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha
 CG311  CG321  CG311    58.35    113.50   11.16   2.56100 ! PROT alkanes
+CG311  CG321  CG314    58.35    113.50   11.16   2.56100 ! PROT alkanes
 CG311  CG321  CG321    58.35    113.50   11.16   2.56100 ! PROT alkanes
+CG311  CG321  CG324    58.35    110.50   11.16   2.56100 ! FLAVOP PIP1,2,3
 CG311  CG321  OG311    75.70    110.10 ! PROT MeOH, EMB, 10/10/89
 CG311  CG321  HGA2     33.43    110.10   22.53   2.17900 ! PROT alkanes
+CG314  CG321  CG321    58.35    113.50   11.16   2.56100 ! PROT alkanes
+CG314  CG321  OG311    75.70    110.10 ! PROT MeOH, EMB, 10/10/89
+CG314  CG321  HGA2     33.43    110.10   22.53   2.17900 ! PROT alkanes
 CG321  CG321  CG321    58.35    113.60   11.16   2.56100 ! PROT alkane update, adm jr., 3/2/92
-CG321  CG321  NG311    43.70    110.00 ! K2Cn, cgenff_compromise, kevo
+CG321  CG321  CG324    58.35    110.50   11.16   2.56100 ! FLAVOP PIP1,2,3
 CG321  CG321  OG311    75.70    110.10 ! PROT MeOH, EMB, 10/10/89
 CG321  CG321  HGA2     26.50    110.10   22.53   2.17900 ! PROT alkane update, adm jr., 3/2/92
-NG311  CG321  NG311    90.00    113.00 ! OBTZ, 1,1-dioxo-3,4-dihydro-2H-1,2,4-benzothiadiazine, xxwy
-NG311  CG321  HGA2     32.40    109.50   50.00   2.1300 ! PEI polymers, kevo
+CG324  CG321  OG311    75.70    112.10 ! FLAVOP PIP1,2,3
+CG324  CG321  HGA2     26.50    110.10   22.53   2.17900 ! FLAVOP PIP1,2,3
 OG311  CG321  HGA2     45.90    108.89 ! PROT MeOH, EMB, 10/10/89
 HGA2   CG321  HGA2     35.50    109.00    5.40   1.802  ! PROT alkane update, adm jr., 3/2/92
-CG321  NG311  CG321    40.50    109.60 ! 5UHG, from nmgn, cgenff_compromise, kevo
-CG321  NG311  HGP1     46.00    111.00 ! EESM, N-ethylethanesulfonamide, xxwy
-CG321  NG311  HGPAM1   35.00    111.00 ! compromise between PEI0 on the one hand and OBTZ AOBT on the other hand, kevo & xxwy
+CG311  CG324  NG3P2    40.00    110.00 ! G3P(R/S), 01OH04
+CG311  CG324  HGA2     26.50    111.80   22.53   2.17900 ! FLAVOP PIP1,2,3
+CG321  CG324  NG3P2    40.00    110.00 ! PIP, piperidine
+CG321  CG324  HGA2     26.50    111.80   22.53   2.17900 ! FLAVOP PIP1,2,3
+NG3P2  CG324  HGA2     45.00    102.30   35.00   2.10100 ! PIP, piperidine
+HGA2   CG324  HGA2     35.50    109.00    5.40   1.80200 ! PIP1,2,3
+CG314  NG3P2  CG324    45.00    115.20 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha ! tweaked 115.50 --> 115.20 by kevo
+CG314  NG3P2  HGP2     30.00    110.80   27.00   2.07400 ! 2MRB, Alpha benzyl gamma 2-methyl piperidine, cacha
+CG324  NG3P2  CG324    40.00    115.20 ! PIP, piperidine ! tweaked 115.50 --> 115.20 by kevo
+CG324  NG3P2  HGP2     30.00    110.80   27.00   2.07400 ! PIP, piperidine
+HGP2   NG3P2  HGP2     51.00    107.50 ! PROT AcProNH2, ProNH2, AcProNHCH3 RLD 4/23/93
 CG311  OG311  HGP1     50.00    106.00 ! og 1/06 EtOH IR fit; was 57.5 106
 CG321  OG311  HGP1     50.00    106.00 ! sng mod (qm and crystal data); was 57.5 106
-
-CG311  CG311  NG311    73.00    111.20 ! obj01 , from CG311 CG311 NG321, penalty= 1.2
-CG321  CG311  NG311    43.70    112.20 ! obj01 , from CG321 CG311 NG321, penalty= 1.2
-NG311  CG311  HGA1     32.40    109.50   50.00   2.13000 ! obj01 , from NG311 CG314 HGA1, penalty= 1
-CG311  CG321  NG311    60.63    115.77 ! obj01 , from CG311 CG321 NG301, penalty= 0.6
-CG311  NG311  CG321    40.50    109.60 ! obj01 , from CG321 NG311 CG321, penalty= 0.6
-CG311  NG311  HGPAM1   35.00    111.00 ! obj01 , from CG321 NG311 HGPAM1, penalty= 0.6
 
 NC2D1    CC3162   OC3C61  90.00   110.00  ! 90.00   110.00  ! OC301   CC311D  OC3C61   90.00   110.00
 HCA1     CC3162   NC2D1   48.00   108.00  ! par22 NH1  CT1  HB
@@ -1642,92 +1665,138 @@ CG321  CG311  CG311  HGA1       0.1950  3     0.00 ! NA, sugar
 OG311  CG311  CG311  OG311      0.20    3     0.0 ! flavin
 OG311  CG311  CG311  HGA1       0.1950  3     0.00 ! NA, sugar
 HGA1   CG311  CG311  HGA1       0.1950  3     0.00 ! NA, sugar
+CG321  CG311  CG314  HGA1       0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with NA, sugar
+OG311  CG311  CG314  HGA1       0.1950  3     0.00 ! BUG, from OG311 CG311 CG311 HGA1, yxu, RNA
+HGA1   CG311  CG314  HGA1       0.1950  3     0.00 ! NPROT N-terminal AA - standard parameter collided with A, sugar
 CG311  CG311  CG321  CG311      0.2000  3     0.00 ! CA, Cholic Acid, reset to default by kevo
 CG311  CG311  CG321  CG321      0.2000  3     0.00 ! CHL1, Cholesterol reset to default by kevo
 CG311  CG311  CG321  OG311      0.20    3   180.0 ! flavin
 CG311  CG311  CG321  HGA2       0.1950  3     0.00 ! NA, sugar
+CG314  CG311  CG321  HGA2       0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with NA, sugar
 CG321  CG311  CG321  CG311      0.2000  3     0.00 ! PROT alkane update, adm jr., 3/2/92
 CG321  CG311  CG321  CG321      0.2000  3     0.00 ! PROT alkane update, adm jr., 3/2/92
+CG321  CG311  CG321  CG324      0.2000  3     0.00 ! G4MP, Gamma-4-Methyl piperidine Glu Acid CDCA Amide, cacha reset to default by kevo
 CG321  CG311  CG321  OG311      0.2000  3   180.00 ! CARBOCY carbocyclic sugars
 CG321  CG311  CG321  HGA2       0.1950  1     0.00 ! NA, sugar
+CG324  CG311  CG321  CG321      0.1950  3     0.00 ! FLAVOP PIP1,2,3
+CG324  CG311  CG321  CG324   0.1950 3    0.00 ! from CG314 CG321 CG321 CG324, PENALTY= 4.6 5CT
+CG324  CG311  CG321  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
 OG311  CG311  CG321  CG311      2.00  3   180.00 ! NA, sugar
 OG311  CG311  CG321  CG311      0.4000  5     0.00 ! NA, sugar
 OG311  CG311  CG321  CG311      0.8000  6     0.00 ! NA, sugar
+OG311  CG311  CG321  CG314   0.5000 1  180.00 ! HTI.pdb , from OG311 CG311 CG321 CG321, penalty= 17 HTI
+OG311  CG311  CG321  CG314   0.7000 2    0.00 ! HTI.pdb , from OG311 CG311 CG321 CG321, penalty= 17 HTI
+OG311  CG311  CG321  CG314   0.4000 3    0.00 ! HTI.pdb , from OG311 CG311 CG321 CG321, penalty= 17 HTI
+OG311  CG311  CG321  CG314   0.4000 5    0.00 ! HTI.pdb , from OG311 CG311 CG321 CG321, penalty= 17 HTI
 OG311  CG311  CG321  CG321      0.5000  1   180.00 ! NA elevates energy at 0 (c3'endo), adm
 OG311  CG311  CG321  CG321      0.7000  2     0.00 ! NA elevates energy at 0 (c3'endo), adm
 OG311  CG311  CG321  CG321      0.4000  3     0.00 ! NA abasic nucleoside
 OG311  CG311  CG321  CG321      0.4000  5     0.00 ! NA abasic nucleoside
+OG311  CG311  CG321  CG324   0.5000 1  180.00 ! from OG311 CG311 CG321 CG321, PENALTY= 17 5CT
+OG311  CG311  CG321  CG324   0.7000 2    0.00 ! from OG311 CG311 CG321 CG321, PENALTY= 17 5CT
+OG311  CG311  CG321  CG324   0.4000 3    0.00 ! from OG311 CG311 CG321 CG321, PENALTY= 17 5CT
+OG311  CG311  CG321  CG324   0.4000 5    0.00 ! from OG311 CG311 CG321 CG321, PENALTY= 17 5CT
 OG311  CG311  CG321  OG311      0.2000  3     0.00 ! PROT alkane update, adm jr., 3/2/92
 OG311  CG311  CG321  HGA2       0.1950  3   180.00 ! NA, sugar
 HGA1   CG311  CG321  CG311      0.1950  3     0.00 ! NA, sugar
+HGA1   CG311  CG321  CG314      0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with NA, sugar
 HGA1   CG311  CG321  CG321      0.1950  3     0.00 ! NA abasic nucleoside
+HGA1   CG311  CG321  CG324      0.1950  3     0.00 ! G4MP, 01OH03, cacha
 HGA1   CG311  CG321  OG311      0.1950  3     0.00 ! NA, sugar
 HGA1   CG311  CG321  HGA2       0.1950  3     0.00 ! NA, sugar
+CG321  CG311  CG324  NG3P2      0.1950  3     0.00 ! G3P(R/S), Gamma-3-piperidine Glu Acid CDCA Amide, cacha
+CG321  CG311  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
+OG311  CG311  CG324  NG3P2   0.1950 3    0.00 ! from OG311 CG311 CG324 NG3P1, PENALTY= 0.6 5CT
+OG311  CG311  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
+HGA1   CG311  CG324  NG3P2      0.1950  3     0.00 ! G3P(R/S), Gamma-3-piperidine Glu Acid CDCA Amide, cacha
+HGA1   CG311  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
 CG311  CG311  OG311  HGP1       1.3300  1     0.00 ! PROT PRO2, 2-propanol OH hf/torsional surface, adm jr., 3/2/93
 CG311  CG311  OG311  HGP1       0.1800  2     0.00 ! PROT PRO2, 2-propanol OH hf/torsional surface, adm jr., 3/2/93
 CG311  CG311  OG311  HGP1       0.4600  3     0.00 ! PROT PRO2, 2-propanol OH hf/torsional surface, adm jr., 3/2/93 ! compensated for X CG311 OG311 X 0.14 --> HGA1 CG311 OG311 HGP1 0.00 kevo ==> re-optimize?
+CG314  CG311  OG311  HGP1       0.5000  1     0.00 ! BUG, from CG324 CG311 OG311 HGP1,, yxu, RNA
+CG314  CG311  OG311  HGP1       0.7000  2     0.00 ! BUG, from CG324 CG311 OG311 HGP1,, yxu, RNA
 CG321  CG311  OG311  HGP1       0.3000  1     0.00 ! CARBOCY carbocyclic sugars
 CG321  CG311  OG311  HGP1       0.3000  3     0.00 ! CHOLEST cholesterol
+CG324  CG311  OG311  HGP1       0.5000  1     0.00 ! FLAVOP PIP3
+CG324  CG311  OG311  HGP1       0.7000  2     0.00 ! FLAVOP PIP3
 OG311  CG311  OG311  HGP1    1.8339 1    0.00 ! DDZ, by ac_aa
 OG311  CG311  OG311  HGP1    1.0549 2    0.00 ! DDZ, by ac_aa
 OG311  CG311  OG311  HGP1    0.2781 3    0.00 ! DDZ, by ac_aa
 HGA1   CG311  OG311  HGP1       0.00  3     0.00 ! NA backbone. PRO2 not properly optimized in new carbohydrate FF ==> unmodified.
+CG321  CG314  CG321  CG321      0.2000  3     0.00 ! 3MRB,Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+CG321  CG314  CG321  HGA2       0.1950  3     0.00 ! 3MRB,Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha reset to default by kevo
+NG3P2  CG314  CG321  CG321      0.1950  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+NG3P2  CG314  CG321  HGA2       0.1950  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+HGA1   CG314  CG321  CG311      0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with NA, sugar
+HGA1   CG314  CG321  CG321      0.1950  3     0.00 ! NA abasic nucleoside
+HGA1   CG314  CG321  OG311      0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with NA, sugar
+HGA1   CG314  CG321  HGA2       0.1950  3     0.00 ! NA, sugar
+CG321  CG314  NG3P2  CG324      0.1000  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+CG321  CG314  NG3P2  HGP2       0.1000  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+HGA1   CG314  NG3P2  CG324      0.1000  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
+HGA1   CG314  NG3P2  HGP2       0.1000  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha
 CG311  CG321  CG321  CG311      0.1950  3     0.00 ! PROT alkane update, adm jr., 3/2/92
 CG311  CG321  CG321  CG321      0.5000  3     0.00 ! CARBOCY carbocyclic sugars
 CG311  CG321  CG321  CG321      0.5000  6   180.00 ! CARBOCY carbocyclic sugars
+CG311  CG321  CG321  CG324      0.1950  3     0.00 ! FLAVOP PIP1,2,3
 CG311  CG321  CG321  HGA2       0.1950  3     0.00 ! NA abasic nucleoside
+CG314  CG321  CG321  CG321      0.5000  3     0.00 ! CARBOCY carbocyclic sugars
+CG314  CG321  CG321  CG321      0.5000  6   180.00 ! CARBOCY carbocyclic sugars
+CG314  CG321  CG321  CG324      0.1950  3     0.00 ! PROT N-terminal AA - standard parameter collided with FLAVOP PIP1,2,3
+CG314  CG321  CG321  HGA2       0.1950  3     0.00 ! NA abasic nucleoside
 CG321  CG321  CG321  CG321      0.06450 2     0.00 ! LIPID alkane, 4/04, jbk (Jeff Klauda)
 CG321  CG321  CG321  CG321      0.14975 3   180.00 ! LIPID alkane, 4/04, jbk
 CG321  CG321  CG321  CG321      0.09458 4     0.00 ! LIPID alkane, 4/04, jbk
 CG321  CG321  CG321  CG321      0.11251 5     0.00 ! LIPID alkane, 4/04, jbk
-CG321  CG321  CG321  NG311      0.3000  3     0.00 ! K2Cn, from prnc, yxu, RNA
+CG321  CG321  CG321  CG324      0.1950  3     0.00 ! FLAVOP PIP1,2,3
 CG321  CG321  CG321  OG311      0.1950  3     0.00 ! PROT alkane update, adm jr., 3/2/92
 CG321  CG321  CG321  HGA2       0.1950  3     0.00 ! LIPID alkanes
-NG311  CG321  CG321  HGA2       0.1950  3     0.00 ! K2Cn, cgenff_compromise, kevo
+CG324  CG321  CG321  CG324      0.1950  3     0.00 ! R2C, from CG36, yxu, RNA
+CG324  CG321  CG321  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
 OG311  CG321  CG321  HGA2       0.1950  3     0.00 ! PROT alkane update, adm jr., 3/2/92
 HGA2   CG321  CG321  HGA2       0.2200  3     0.00 ! LIPID alkanes
-CG321  CG321  NG311  HGPAM1     0.3000  3     0.00 ! K2Cn, cgenff_compromise, kevo
-NG311  CG321  NG311  HGP1       0.1000  3     0.00 ! AOBT, acyclic model introduced for OBTZ to optimize related dihedrals, xxwy
-NG311  CG321  NG311  HGPAM1     1.7000  2     0.00 ! AOBT, acyclic model introduced for OBTZ to optimize related dihedrals, xxwy
-NG311  CG321  NG311  HGPAM1     0.3000  3     0.00 ! AOBT, acyclic model introduced for OBTZ to optimize related dihedrals, xxwy
-HGA2   CG321  NG311  CG321      0.00  3     0.00 ! 5UHG, cgenff_compromise, kevo
-HGA2   CG321  NG311  HGP1       0.0500  3     0.00 ! EESM, N-ethylethanesulfonamide, xxwy
-HGA2   CG321  NG311  HGPAM1     0.0500  3     0.00 ! PEI0, OBTZ, AOBT, kevo & xxwy
+CG311  CG321  CG324  NG3P2      1.00  3     0.00 ! G4MP, Gamma-4-Methyl Piperidine Glu Acid CDCA Amide, cacha ! @@@ Kenno: 0.1950 -> 1.00
+CG311  CG321  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
+CG321  CG321  CG324  NG3P2      1.00  3     0.00 ! PIP, piperidine ! @@@ Kenno: 0.1950 -> 1.00
+CG321  CG321  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
+OG311  CG321  CG324  HGA2       0.1950  3     0.00 ! PROT alkane update, adm jr., 3/2/92
+HGA2   CG321  CG324  NG3P2      0.1950  3     0.00 ! PIP, piperidine
+HGA2   CG321  CG324  HGA2       0.1950  3     0.00 ! FLAVOP PIP1,2,3
 CG311  CG321  OG311  HGP1       1.1300  1     0.00 ! og ethanol
 CG311  CG321  OG311  HGP1       0.1400  2     0.00 ! og ethanol
 CG311  CG321  OG311  HGP1       0.2400  3     0.00 ! og ethanol
+CG314  CG321  OG311  HGP1       1.1300  1     0.00 ! og ethanol
+CG314  CG321  OG311  HGP1       0.1400  2     0.00 ! og ethanol
+CG314  CG321  OG311  HGP1       0.2400  3     0.00 ! og ethanol
 CG321  CG321  OG311  HGP1       1.1300  1     0.00 ! og ethanol
 CG321  CG321  OG311  HGP1       0.1400  2     0.00 ! og ethanol
 CG321  CG321  OG311  HGP1       0.2400  3     0.00 ! og ethanol
+CG324  CG321  OG311  HGP1       1.1300  1     0.00 ! ETAM, ethanolamine (transferred from og ethanol)
+CG324  CG321  OG311  HGP1       0.1400  2     0.00 ! ETAM, ethanolamine (transferred from og ethanol)
+CG324  CG321  OG311  HGP1       0.2400  3     0.00 ! ETAM, ethanolamine (transferred from og ethanol)
 HGA2   CG321  OG311  HGP1       0.1800  3     0.00 ! og methanol
+CG311  CG324  NG3P2  CG324      0.4000  1     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG311  CG324  NG3P2  CG324      0.2500  2     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG311  CG324  NG3P2  CG324      0.6000  3     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG311  CG324  NG3P2  HGP2       0.1000  3     0.00 ! G3P(R/S), Gamma-3-Piperidine Glu Acid CDCA Amide, cacha
+CG321  CG324  NG3P2  CG314      0.4000  1     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  CG314      0.2500  2     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  CG314      0.6000  3     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  CG324      0.4000  1     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  CG324      0.2500  2     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  CG324      0.6000  3     0.00 ! *** Developmental params for PEI polymers and PIP. Will be tweaked, then applied to existing PIP derivatives *** kevo
+CG321  CG324  NG3P2  HGP2       0.1000  3     0.00 ! PIP, piperidine
+HGA2   CG324  NG3P2  CG314      0.1000  3     0.00 ! 3MRB, Gamma-3 methyl piperidine, alpha-benzyl GA CDCA amide, cacha; PEI polymers, kevo
+HGA2   CG324  NG3P2  CG324      0.1000  3     0.00 ! PIP, piperidine; PEI polymers, kevo
+HGA2   CG324  NG3P2  HGP2       0.1000  3     0.00 ! PIP, piperidine
 
-CG311  CG311  CG311  CG311      0.5000  4   180.00 ! obj01 , from CG311 CG311 CG311 CG321, penalty= 0.6
-CG311  CG311  CG311  NG311      0.4000  1     0.00 ! obj01 , from CG321 CG311 CG311 NG321, penalty= 1.8
-CG311  CG311  CG311  NG311      0.8000  3     0.00 ! obj01 , from CG321 CG311 CG311 NG321, penalty= 1.8
-NG311  CG311  CG311  OG311      0.4000  1   180.00 ! obj01 , from NG321 CG311 CG311 OG311, penalty= 1.2
-NG311  CG311  CG311  OG311      0.8000  3     0.00 ! obj01 , from NG321 CG311 CG311 OG311, penalty= 1.2
-NG311  CG311  CG311  HGA1       0.5000  3     0.00 ! obj01 , from NG321 CG311 CG311 HGA1, penalty= 1.2
-CG311  CG311  CG321  NG311      0.2000  3     0.00 ! obj01 , from CG311 CG311 CG321 NG301, penalty= 0.6
-NG311  CG311  CG321  OG311      0.4000  1   180.00 ! obj01 , from NG321 CG311 CG311 OG311, penalty= 5.2
-NG311  CG311  CG321  OG311      0.8000  3     0.00 ! obj01 , from NG321 CG311 CG311 OG311, penalty= 5.2
-NG311  CG311  CG321  HGA2       0.1600  3     0.00 ! obj01 , from NG321 CG311 CG321 HGA2, penalty= 1.2
-OG311  CG311  CG321  NG311      0.2000  3     0.00 ! obj01 , from OG311 CG311 CG321 NG301, penalty= 0.6
-HGA1   CG311  CG321  NG311      0.1800  3     0.00 ! obj01 , from HGA1 CG311 CG321 NG301, penalty= 0.6
-CG311  CG311  NG311  CG321      1.4200  1   180.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9.6
-CG311  CG311  NG311  CG321      0.8200  2     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9.6
-CG311  CG311  NG311  CG321      1.0200  3     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9.6
-CG311  CG311  NG311  HGPAM1     0.3000  3     0.00 ! obj01 , from CG321 CG321 NG311 HGPAM1, penalty= 4.6
-CG321  CG311  NG311  CG321      1.4200  1   180.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9
-CG321  CG311  NG311  CG321      0.8200  2     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9
-CG321  CG311  NG311  CG321      1.0200  3     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 9
-CG321  CG311  NG311  HGPAM1     0.3000  3     0.00 ! obj01 , from CG321 CG321 NG311 HGPAM1, penalty= 4
-HGA1   CG311  NG311  CG321      0.0000  3     0.00 ! obj01 , from HGA1 CG314 NG311 CG321, penalty= 1
-HGA1   CG311  NG311  HGPAM1     0.0500  3     0.00 ! obj01 , from HGA1 CG314 NG311 HGPAM1, penalty= 1
-CG311  CG321  NG311  CG311      1.4200  1   180.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 6.2
-CG311  CG321  NG311  CG311      0.8200  2     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 6.2
-CG311  CG321  NG311  CG311      1.0200  3     0.00 ! obj01 , from CG321 CG321 NG301 CG321, penalty= 6.2
-CG311  CG321  NG311  HGPAM1     0.3000  3     0.00 ! obj01 , from CG321 CG321 NG311 HGPAM1, penalty= 0.6
-HGA2   CG321  NG311  CG311      0.0000  3     0.00 ! obj01 , from HGA2 CG321 NG311 CG321, penalty= 0.6
+CG324  CG311  CG311  OG311      0.5000  1   180.00 ! dgj , from CG314 CG311 CG311 OG311, penalty= 0.6
+CG324  CG311  CG311  OG311      0.7000  2     0.00 ! dgj , from CG314 CG311 CG311 OG311, penalty= 0.6
+CG324  CG311  CG311  OG311      0.4000  3     0.00 ! dgj , from CG314 CG311 CG311 OG311, penalty= 0.6
+CG324  CG311  CG311  OG311      0.4000  5     0.00 ! dgj , from CG314 CG311 CG311 OG311, penalty= 0.6
+CG311  CG311  CG314  NG3P2      0.2000  3     0.00 ! dgj , from CG321 CG311 CG314 NG3P2, penalty= 0.6
+OG311  CG311  CG314  NG3P2      0.2000  3     0.00 ! dgj , from OG311 CG311 CG314 NG3P3, penalty= 0.9
+CG311  CG314  CG321  OG311      0.2000  3   180.00 ! dgj , from CG321 CG314 CG321 OG311, penalty= 0.6
 
 NC2D1   CC3162  OC3C61  CC3163   0.62  1    0.0 ! og OMeTHP compounds 2 and 3
 NC2D1   CC3162  OC3C61  CC3163   1.54  2    0.0 ! OC301    CC311D   OC3C61   CC321C
@@ -2841,10 +2910,12 @@ CLA      0.0       -0.150      2.27     ! Chloride
 HGA1     0.0       -0.0450     1.3400 ! alkane, igor, 6/05
 HGA2     0.0       -0.0350     1.3400 ! alkane, igor, 6/05
 HGP1     0.0       -0.0460     0.2245 ! polar H
-HGPAM1   0.0       -0.0090     0.8750 ! aliphatic amines
+HGP2     0.0       -0.0460     0.2245 ! small polar Hydrogen, charged systems
 CG311    0.0       -0.0320     2.00   0.0 -0.01 1.9 ! alkane (CT1), isobutane, 6/05 viv
+CG314    0.0       -0.0310     2.1650   0.0 -0.01 1.9 ! extrapolation based on CG311, CG321 and CG324, kevo
 CG321    0.0       -0.0560     2.0100   0.0 -0.01 1.9 ! alkane (CT2), 4/98, yin, adm jr, also used by viv
-NG311    0.0       -0.0450     2.00 ! aliphatic amines
+CG324    0.0       -0.0550     2.1750   0.0 -0.01 1.9 ! PIP1,2,3
+NG3P2    0.0       -0.2000     1.8500 ! N-terminal proline; from +ProNH2  RLD 9/28/90
 OG311    0.0       -0.1921     1.7650 ! og MeOH and EtOH 1/06 (was -0.1521 1.7682)
 
 

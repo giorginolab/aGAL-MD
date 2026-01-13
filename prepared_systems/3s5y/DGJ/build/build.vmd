@@ -425,9 +425,7 @@ patch ASPP P0:234
 patch ASPP P1:136
 patch ASPP P1:234
 patch GLUP P0:48
-patch GLUP P0:203
 patch GLUP P1:48
-patch GLUP P1:203
 
 regenerate angles dihedrals
 
