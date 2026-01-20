@@ -9,42 +9,66 @@ Development of molecular dynamics-based features from all-atom simulations of α
 
 
 ## Summary
+The repo is organized as follows:
 
-The repo contains:
+- [*DGJ*](DGJ), contains mol2 files used to build the correct protein structure and corresponding forcefield parameters (charmm36).
+- [*functions*](functions), contains notebooks and scripts used to obtain the data described in the report.
+- [*glycosylation*](glycosylation), contains the [reglycosylated pdb structure](/glycosylation/3s5y_reglyco.pdb)* and information about the glycans.
+- [*paper*](paper), this preprint: I. Cazzaniga, T. Giorgino, *Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness*, 2025 ([preprint](report/aGAL_report.pdf)).
+- [*prepared_systems*](prepared_systems), contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
+- [*results*](results), contains csv tables and plots obtained from the analysis of the trajectories.
 
-- *report*, this preprint: I. Cazzaniga, T. Giorgino, *Development of molecular dynamics-based features from all-atom simulations of αGAL mutants to assess pharmacoperone responsiveness*, 2025. [preprint](report/aGAL_report.pdf)
-- *DGJ*, contains mol2 files used to build the correct protein structure and corresponding forcefield parameters (charmm36).
-- *functions*, contains notebooks and scripts used to obtain the data described in the report.
-- *glycosylation*, contains the [reglycosylated pdb structure](/glycosylation/3gxt_reglyco.pdb)* and information about the glycans.
-- *prepared_systems*, contains the six systems described in the report (apo and holo, wt, N215S, R301Q) before equilibrating.
-- *results*, contains csv tables and plots obtained from the analysis of the trajectories.
+*NOTE* the repo lacks of a *dist* folder, where simulations are stored locally. 
  
 ## Quickstart (protocol overview)
+For a more thorought explaination, check the [Tutorial](Tutorial) section below.
 
-1. Install HTMD, MoleculeKit and ACEMD in a conda environment (see below), then from the repository root run the system-preparation notebook:
-   ```bash
-   conda activate ace_software
-   jupyter notebook functions/1_mol_prep_fabry.ipynb
-   ```
-   This creates one `equilibration` folder per apo/holo, wild-type/mutant system under `prepared_systems/`.
-2. On your HPC system, run equilibration and production as described in the Tutorial:
-   - submit equilibration jobs from each `equilibration` folder (using `sbatch_acemd`),
-   - then run `production_prep.py` and submit production jobs (using `sbatch_many`) from each structure_replica folder.
-   The script `check_end.py` can be called from the parent folder to verify that jobs finished correctly.
-3. (Optional) From the parent folder (e.g. `3GXT_reglyco`), strip water and subsample trajectories:
-   ```bash
-   python ../functions/filter_prod.py
-   ```
-4. From the `functions` folder, perform the standardized analysis:
-   ```bash
-   python residence_time.py             # compute ligand residence times
-   jupyter notebook functions/2_evaluation.ipynb  # compute RMSD/RMSF tables and plots
-   ```
-   The resulting CSV tables and plots are written under `results/tables` and `results/plots`.
+1. Install HTMD, Moleculekit and ACEMD software in a conda environment, then from the repository root run the system-preparation notebook:
+    ```bash
+        conda activate ace_software #leave it always active
+        jupyter notebook functions/1_mol_prep_fabry.ipynb
+    ```
+   Running this notebook generates one `build/` and one `equilibration/` directory for each system (apo/holo and wild-type/mutant combinations) under `prepared_system/<pdb>`.
+   *NOTE:* The notebook automatically generates either the wild-type system or the specified mutants, according to the configuration defined within the notebook.
+
+2. On your HPC system, run equilibration and production:
+    - generate the replicas of each system with [`functions/make_replicas.py`](functions/make_replicas.py). *NOTE:* replicas are stored in `dist/`:
+
+    ```bash
+       cd prepared_systems/<pdb>
+       python ../../make_replicas.py <n> #n is the number of replicas
+    ```
+    - submit all the equilibrations with [`sbatch_acemd`](functions/sbatch_acemd).
+    - generate the `production folder/` for each equilibrated system
+    - submit all the productions with [`sbatch_many`](functions/sbatch_many).
+
+*NOTE:* use [`check_end.py`](functions/check_end.py) to verify the end of equilibrations or productions:
+   
+    ```bash
+        cd dist/<pdb>
+        python ../../check_end.py production #it is required to specify which folder to check
+    ```
+
+3. (Optional) strip water and subsample trajectories:
+  
+    ```bash
+        cd dist/<pdb>
+        python ../../functions/filter_prod.py
+    ```
+4. perform the standardized analysis:
+   
+    ```bash
+        cd functions/
+        jupyter notebook functions/2_evaluation.ipynb  # compute RMSD/RMSF tables and plots
+
+        cd  results/<pdb>/tables
+        python ../../../functions/residence_time.py    # compute ligand residence times
+    ```
+   The resulting CSV tables and plots are stored at `results7<pdb>/tables` and `results/<pdb>/plots`.
 
 *The glycans in this pdb have been processed as described at step 0.
 
-Trajectories obtained from the molecules present in `prepared_systems` folder are available at doi:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241): 1 ns per frame, 3 replicas, water stripped out.
+Our trajectories obtained from the PDB 3GXT systems in [`prepared_systems`](prepared_systems) folder are available at doi:[10.5281/zenodo.17552241](https://zenodo.org/records/17552241): 1 ns per frame, 3 replicas, water stripped out.
 
 ## Tutorial
 This package relies on HTMD, Moleculekit and ACEMD software, which can be installed as:
@@ -55,91 +79,117 @@ This package relies on HTMD, Moleculekit and ACEMD software, which can be instal
 ```
 
 ### Step 0: reglycosylate the protein (optional)
-The protein structure we used here is based on the [PDB 3GXT](rcsb.org/structure/3GXT/) model, which underwent a reglycosylation step via [glycoshape.org](https://glycoshape.org/reglyco) 
-to have the same glycan structure in each glycosylated sites, in particular:
+The protein structure we used here is based on the [PDB 3S5Y](rcsb.org/structure/3S5Y/) model.
+The original PDB underwent a reglycosylation step via [glycoshape.org](https://glycoshape.org/reglyco), to have the same glycan structure in each glycosylated sites, in particular (glycan ID G00026MO):
 ![Alt Text](glycosylation/glycan.svg)
-
-The NOJ (ligand) will be addressed in step 1 of the tutorial.
 
 ### Step 1: system building and preparation
 It can be easily done by running the [1_mol_prep_fabry.ipynb](functions/1_mol_prep_fabry.ipynb) notebook, which includes:
 
 - mutation and glycosylation handling
-- NOJ replacement with migalastat (DGJ)
+- ligand insertion 
 - system segmentation and preparation
 - equilibration folder creation
 
-Although the example workflow focuses on migalastat, other ligands or competitive inhibitors can be modeled by providing their coordinates in place of NOJ/DGJ and supplying compatible force-field parameters (e.g. via CGenFF), without changing the rest of the protocol.
+Although the example workflow focuses on migalastat, other ligands or competitive inhibitors can be, in principle, modeled by providing the correct coordinates to fit in the dimer and by supplying compatible force-field parameters (e.g. via CGenFF), without changing the rest of the protocol.
 
-The notebook generates a folder for each mutant apo/holo structure, each folder contains a `build` folder with the intermediate steps of the system preparation and an `equilibration` folder. 
+The notebook generates a folder for each wild-type/mutant apo/holo structure, each generated folder contains a `build` folder with the intermediate steps of the system preparation and a `equilibration` folder. 
+The folders generated are currently stored in [`prepared_systems`](prepared_system/3s5y).
 
-If multiple replicas of the system are to be run, please make copies of the folders at this point and store them in a parent folder following this pattern:
+If multiple replicas of the system are to be run, use [`make_replicas.py`](functions/make_replicas.py) to generate the desired number of replicas. 
+   ```bash
+        cd prepared_systems/3s5y
+        python ../../functions/make_replicas.py <n> #n is the number of replicas desired, e.g. 3
+   ```
+ make_replicas.py currently generates a folder `dist` in which the replicas and the simulation data are stored. This folder and its content is not included in this public repository because of GitHub limitations of file size.
+
+The local repo organization for the should be: 
 
 ```
-github_directory/
-└── parent_folder/ (i.e. 3GXT_reglyco)
-    └── structure_replica/ (i.e. apo_1)
-        ├── build/
-        └── equilibration/
+    github_directory/
+    └── prepared_systems/ 
+    |   └── <pdb number>/
+    |       └── <structure>/ (e.g. apo)
+    |           ├── build/
+    |           └── equilibration/
+    └── dist/
+    |   └── <pdb number>/
+    |       └── <structure_replica>/ (e.g. apo_1, apo_2)
+    |           ├── build/
+    |           ├── equilibration/
+    |           └── production/
+    all the other folders
 ```
 
+The following steps of this tutorial are carried within `dist` folder.
 
 ### Step 2: equilibration run
 The equilibration must be run on HPC.
-From within the `equilibration` folder:
+For each structure and replica contained in `dist`:
 
 ```bash
-    conda activate htmd 
+    conda activate ace_software
     
-    sbatch sbatch_acemd #single structure_replica
+    cd dist/<pdb_number>/<structure_replica>/equilibration/
+    sbatch ../../../../functions/sbatch_acemd #single submission, from the equilibration folder
 
-    for dir in *; do [ -d "$dir/equilibration" ] || { echo "Skipping $dir: no equilibration folder"; continue; }; echo "Entering $dir/equilibration"; (cd "$dir/equilibration" && sbatch ../../../functions/sbatch_acemd); done #multiple submissions
+    cd dist/<pdb_number>
+    for dir in *; do [ -d "$dir/equilibration" ] || { echo "Skipping $dir: no equilibration folder"; continue; }; echo "Entering $dir/equilibration"; (cd "$dir/equilibration" && sbatch ../../functions/sbatch_acemd); done #multiple submissions, from the <pdb_number>/ folder
 ```
-**NOTE** the single equilibration submission must be launched from within the specific `equilibration` folder, the multiple submission must be launched from the parent folder.
+**NOTE** the single equilibration submission must be launched from within the specific `equilibration` folder, the multiple submission must be launched from the `<pdb_number>` folder.
 
-If multiple systems are run in parallel, it is possible to check if the equilibrations are ended by running [check_end.py](functions/check_end.py), called from the parent folder:
+It is possible to check if the equilibrations are ended by running [check_end.py](functions/check_end.py), called from `<pdb_number>` folder:
 
 ```bash
-    cd 3GXT_reglyco # change with the name of your parent folder
-    
-    python ../functions/check_end.py equilibration
+    conda activate ace_software
+
+    cd dist/<pdb_number>    
+    python ../../functions/check_end.py equilibration
 ```
-**NOTE** this file looks for the slurm file and checks if it ended correctly, more precise evaluation must be carried.
+**NOTE** this file looks for the slurm file and checks if it ended, more precise evaluation must be carried.
 
 ### Step 3: production preparation and run
 Once the equilibration is completed it is possible to generate the required files for the production run.
 
-From within the specific structure_replica folder do:
+From within the specific `<structure_replica>` folder do:
 
 ```bash
-    conda activate htmd
+    conda activate ace_software
     
+    cd dist/<pdb_number>/<structure_replica>
     python ../../functions/production_prep.py
 ```
-If running multiple systems in parallel, from the parent folder, do:
+If running multiple systems in parallel, from the `<pdb_number>` folder, do:
 
 ```bash
-    conda activate htmd
+    conda activate ace_software
     
+    cd dist/<pdb_number>
     for dir in */; do [ -d "$dir" ] || continue; echo "Entering $dir"; (cd "$dir" && python ../../functions/production_prep.py); done
 ```
 At this point, in both cases, it is possible to run the production. 
-In some cases the production could require multiple job submission if maximum runtime 24 hours, to avoid doing so manually we use [sbatch_many](functions/sbatch_many). 
+In some cases, the production run may require multiple job submissions due to limited walltime. To avoid manual resubmission, you can use [sbatch_many](functions/sbatch_many)
+ to generate a chained sequence of SLURM job submissions.
 
 ```bash
-    conda activate htmd 
+    conda activate ace_software 
     
-    sbatch sbatch_many n  #single structure_replica
-    for dir in *; do [ -d "$dir/production" ] || ( echo "Skipping $dir: no production folder"; continue; ); echo "Entering $dir/production"; (cd "$dir/production" && sbatch ../../../functions/sbatch_many n); done #multiple submissions in parallel
+    #single structure/replica submission
+    cd dist/<pdb_number>/<structure_replica>
+    sbatch sbatch_many <n> 
+
+    #multiple structure/replica submission
+    cd dist/<pdb_number>
+    for dir in *; do [ -d "$dir/production" ] || ( echo "Skipping $dir: no production folder"; continue; ); echo "Entering $dir/production"; (cd "$dir/production" && sbatch ../../../functions/sbatch_many <n>); done #multiple submissions in parallel
 ```
-With *n* being the number of jobs to be generated for each structure_replica (for example, in our case a 1 μs long simulation required about 7 jobs).
+With *<n>* being the number of jobs to be generated for each structure_replica (for example, in our case, with a 1 μs long simulation and 24 h walltime, we set n = 7).
 
 If multiple systems are run in parallel, it is possible to check if the equilibrations are ended by running [check_end.py](functions/check_end.py) from within the parent folder generated by the notebook:
 
 ```bash
-    cd 3GXT_reglyco #change with the name of your parent folder
+    cd dist/<pdb_number>
     
-    python ../functions/check_end.py production
+    python ../../functions/check_end.py production
 ```
 **NOTE** this file looks for the slurm file with the highest number (the last run) and checks if it ended correctly, more precise evaluation must be carried.
 
@@ -149,9 +199,11 @@ This involves:
 
 1. An optional [filter_prod.py](functions/filter_prod.py) filtering step to remove water (TIP3, otherwise needs to be fixed) and reduce the size of both the topology (psf) and trajectory (xtc). 
     The new trajectory is generated by skipping every 10 frames.
-        This can be run from within the parent folder (i.e. 3GXT_reglyco) as:
+        This can be run from within the `<pdb_number>` folder as:
 ```bash
-        python ../functions/filter_prod.py
+    cd dist/<pdb_number>
+
+    python ../../functions/filter_prod.py
 ```
 
 2. A notebook for computing the RMSD and RMSF analysis, [2_evaluation.ipynb](functions/2_evaluation.ipynb), with some examples we included in our report. 
@@ -160,7 +212,9 @@ This involves:
 3. Python script to compute the residence time of each DGJ in the corresponding monomer, called [residence_time.py](functions/residence_time.py). 
     This can be run from within the `functions` folder as:
 ```bash
-        python residence_time.py
+    cd  results/<pdb>/tables
+
+    python ../../../functions/residence_time.py 
 ```
 
 

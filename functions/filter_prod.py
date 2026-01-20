@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Remove water and subsample production trajectories every 10th frame.
 
-Run this script from the parent folder containing the replica directories
-(e.g., within `3GXT_reglyco/`):
+Activate the environment, then run this script from the parent folder containing the replica directories
+(e.g., within dist/<pdb number>):
 
-    python ../functions/filter_prod.py
+    conda activate ace_software
+
+    python ../../functions/filter_prod.py
 """
 import sys
 import os

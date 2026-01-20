@@ -6,6 +6,7 @@ import moleculekit.projections.metricfluctuation as fluct
 
 
 def rmsf(
+    folder,
     filename,
     topology,
     trajectory,
@@ -28,6 +29,8 @@ def rmsf(
 
     Parameters
     ----------
+    folder   : str
+        Specific folder, contained in results/, in which store tables.
     filename : str
         Base name for the output file stored under `../results/tables`.
     topology : str
@@ -51,7 +54,7 @@ def rmsf(
     -------
     - CSV file: `../results/tables/{filename}_rmsf.csv`
     """
-    csv_file = f"../results/tables/{filename}_rmsf.csv"
+    csv_file = f"../results/{folder}/tables/{filename}_rmsf.csv"
     
     if os.path.exists(csv_file):
         # If CSV exists, just load it to confirm readability and exit.

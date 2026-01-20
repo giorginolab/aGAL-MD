@@ -6,6 +6,6 @@
 #SBATCH -p boost_usr_prod
 
 # Activate your environment
-conda activate htmd
+conda activate ace_software
 
 srun acemd

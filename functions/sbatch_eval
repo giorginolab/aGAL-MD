@@ -15,7 +15,7 @@
 source /leonardo/home/userexternal/icazzani/miniconda3/etc/profile.d/conda.sh
 
 # Activate your environment
-conda activate htmd
+conda activate ace_software
 
 # Optional: check python and conda
 which python

@@ -6,6 +6,7 @@ import moleculekit.projections.metricrmsd as metricrmsd
 
 
 def rmsd(
+    folder,
     filename,
     topology,
     trajectory,
@@ -26,6 +27,8 @@ def rmsd(
 
     Parameters
     ----------
+    folder   : str
+        Specific folder, contained in results/, in which store tables.
     filename : str
         Base name for the output file stored under `../results/tables`.
     topology : str
@@ -51,7 +54,7 @@ def rmsd(
     -------
     - CSV file: `../results/tables/{filename}_rmsd.csv`
      """
-    csv_file = f"../results/tables/{filename}_rmsd.csv"
+    csv_file = f"../results/{folder}/tables/{filename}_rmsd.csv"
     
     if os.path.exists(csv_file):
         # If CSV exists, just load it to confirm readability and exit.

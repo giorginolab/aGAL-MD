@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Check whether ACEMD simulations completed successfully for each replica.
 
-Run this script from the parent folder (e.g., within `3GXT_reglyco/`):
+Run this script from the parent folder (e.g., within dist/<pdb number>):
 
-    python ../functions/check_end.py equilibration
-    python ../functions/check_end.py production
+    python ../../functions/check_end.py equilibration
+    python ../../functions/check_end.py production
 """
 import sys
 import os

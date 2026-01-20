@@ -6,7 +6,6 @@ import shutil
 import sys
 
 
-
 if len(sys.argv) != 2:
     print("Usage: make_replicas.py <n_replicas>")
     sys.exit(1)

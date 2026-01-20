@@ -5,6 +5,7 @@ import numpy as np
 # Compute ligand residence time.
 # Call from the parent folder containing `results/tables`.
 
+protein = '3s5y'
 structures = ['DGJ', 'DGJ_N215S', 'DGJ_R301Q']
 replicas = ['1', '2', '3']
 
@@ -13,7 +14,7 @@ data_tot = []
 for s in structures:
     for r in replicas:
         for resi in ['P0', 'P1']:
-            df = pd.read_csv(f'../results/tables/{s}_{r}_lig_{resi}_rmsd.csv')
+            df = pd.read_csv(f'../results/{protein}/tables/{s}_{r}_lig_{resi}_rmsd.csv')
 
             # rmsd >= 5 is the limit we set to define in/out
             t_exit = df.loc[df['rmsd'] >= 5, 'time']
@@ -28,4 +29,4 @@ for s in structures:
             data_tot.append(data)
 
 df_results = pd.DataFrame(data_tot)
-df_results.to_csv('../results/tables/residence_time.csv', index=False)
+df_results.to_csv(f'../results/{protein}/tables/residence_time.csv', index=False)
