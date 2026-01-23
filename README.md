@@ -36,18 +36,19 @@ For a more thorought explaination, check the [Tutorial](Tutorial) section below.
 
     ```bash
        cd prepared_systems/<pdb>
-       python ../../make_replicas.py <n> #n is the number of replicas
+       python ../../functions/make_replicas.py <n> #n is the number of replicas
     ```
     - submit all the equilibrations with [`sbatch_acemd`](functions/sbatch_acemd).
     - generate the `production folder/` for each equilibrated system
     - submit all the productions with [`sbatch_many`](functions/sbatch_many).
 
 *NOTE:* use [`check_end.py`](functions/check_end.py) to verify the end of equilibrations or productions:
+  
    
-    ```bash
-        cd dist/<pdb>
-        python ../../check_end.py production #it is required to specify which folder to check
-    ```
+```bash
+    cd dist/<pdb>
+    python ../../check_end.py production #it is required to specify which folder to check
+```
 
 3. (Optional) strip water and subsample trajectories:
   
@@ -64,7 +65,7 @@ For a more thorought explaination, check the [Tutorial](Tutorial) section below.
         cd  results/<pdb>/tables
         python ../../../functions/residence_time.py    # compute ligand residence times
     ```
-   The resulting CSV tables and plots are stored at `results7<pdb>/tables` and `results/<pdb>/plots`.
+   The resulting CSV tables and plots are stored at `results/<pdb>/tables` and `results/<pdb>/plots`.
 
 *The glycans in this pdb have been processed as described at step 0.
 
@@ -134,7 +135,7 @@ For each structure and replica contained in `dist`:
     sbatch ../../../../functions/sbatch_acemd #single submission, from the equilibration folder
 
     cd dist/<pdb_number>
-    for dir in *; do [ -d "$dir/equilibration" ] || { echo "Skipping $dir: no equilibration folder"; continue; }; echo "Entering $dir/equilibration"; (cd "$dir/equilibration" && sbatch ../../functions/sbatch_acemd); done #multiple submissions, from the <pdb_number>/ folder
+    for dir in *; do [ -d "$dir/equilibration" ] || { echo "Skipping $dir: no equilibration folder"; continue; }; echo "Entering $dir/equilibration"; (cd "$dir/equilibration" && sbatch ../../../functions/sbatch_acemd); done #multiple submissions, from the <pdb_number>/ folder
 ```
 **NOTE** the single equilibration submission must be launched from within the specific `equilibration` folder, the multiple submission must be launched from the `<pdb_number>` folder.
 
