@@ -1,0 +1,210 @@
+-I: Adding /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/cmd to search path.
+-I: Adding /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/prep to search path.
+-I: Adding /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm to search path.
+-I: Adding /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib to search path.
+-f: Source ./tleap.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap.in
+----- Source: ./ff0_leaprc.protein.ff14SB
+----- Source of ./ff0_leaprc.protein.ff14SB done
+Log file: ./leap.log
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.ff14SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff14SB protein backbone and sidechain parameters
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/amino12.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/aminoct12.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/aminont12.lib
+----- Source: ./ff1_leaprc.GLYCAM_06j-1
+----- Source of ./ff1_leaprc.GLYCAM_06j-1 done
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/GLYCAM_06j.dat
+Reading title:
+GLYCAM_06_H PARAMETERS (FOR AMBER 11.0, RESP 0.010), COPYRIGHT CCRC 2011
+Loading Prep file: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/prep/GLYCAM_06j-1.prep
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/GLYCAM_amino_06j_12SB.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/GLYCAM_aminoct_06j_12SB.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/GLYCAM_aminont_06j_12SB.lib
+Substituting map 0HYP -> NHYP  for  0HYP -> HYP
+Substituting map 1HYP -> CHYP  for  1HYP -> CHYP
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/solvents.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/atomic_ions.lib
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+----- Source: ./ff2_leaprc.water.tip3p
+----- Source of ./ff2_leaprc.water.tip3p done
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/atomic_ions.lib
+Loading library: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/lib/solvents.lib
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+This is the additional/replacement parameter set for TIP3P water
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.ions1lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of monovalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/frcmod.ions234lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for TIP3P water model (12-6 normal usage set)
+----- Source: ./ff3_leaprc.gaff2
+----- Source of ./ff3_leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.2.20, March 2021)
+Loading Prep file: ./topo0_dgj.prepi
+Loading parameters: ./param0_dgj.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Loading PDB file: ./input.pdb
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C6-C5-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-N-C5-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-N-C1-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O1-C2-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C2-C1-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O2-C3-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C3-C2-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C4-C3-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C4-C5-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O3-C4-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C6-C5-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-N-C5-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-N-C1-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O1-C2-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C2-C1-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O2-C3-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C3-C2-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C4-C3-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-C4-C5-*
++--- With Sp0 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
++Currently only Sp3-Sp3/Sp3-Sp2/Sp2-Sp2 are supported
++---Tried to superimpose torsions for: *-O3-C4-*
++--- With Sp3 - Sp0
++--- Sp0 probably means a new atom type is involved
++--- which needs to be added via addAtomTypes
+  total atoms in file: 166326
+  Leap added 46 missing atoms according to residue templates:
+       46 H / lone pairs
+Box dimensions:  127.938000 147.036600 102.318300
+Checking Unit.
+
+/leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/bin/teLeap: Warning!
+The unperturbed charge of the unit (-0.164000) is not integral.
+
+/leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/bin/teLeap: Warning!
+The unperturbed charge of the unit (-0.164000) is not zero.
+
+/leonardo/home/userexternal/icazzani/miniconda3/envs/ace_software/bin/teLeap: Note.
+Ignoring the warnings from Unit Checking.
+
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+old PREP-specified impropers:
+ total 2674 improper torsions applied
+ 0 improper torsions in old prep form
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	WAT	51254
+  )
+ (no restraints)
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 2; Notes = 1.

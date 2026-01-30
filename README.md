@@ -26,7 +26,7 @@ For a more thorought explaination, check the [Tutorial](Tutorial) section below.
 1. Install HTMD, Moleculekit and ACEMD software in a conda environment, then from the repository root run the system-preparation notebook:
     ```bash
         conda activate ace_software #leave it always active
-        jupyter notebook functions/1_mol_prep_fabry.ipynb
+        jupyter notebook functions/1_mol_prep.ipynb
     ```
    Running this notebook generates one `build/` and one `equilibration/` directory for each system (apo/holo and wild-type/mutant combinations) under `prepared_system/<pdb>`.
    *NOTE:* The notebook automatically generates either the wild-type system or the specified mutants, according to the configuration defined within the notebook.
@@ -85,7 +85,7 @@ The original PDB underwent a reglycosylation step via [glycoshape.org](https://g
 ![Alt Text](glycosylation/glycan.svg)
 
 ### Step 1: system building and preparation
-It can be easily done by running the [1_mol_prep_fabry.ipynb](functions/1_mol_prep_fabry.ipynb) notebook, which includes:
+It can be easily done by running the [1_mol_prep.ipynb](functions/1_mol_prep.ipynb) notebook, which includes:
 
 - mutation and glycosylation handling
 - ligand insertion 
@@ -217,7 +217,44 @@ This involves:
 
     python ../../../functions/residence_time.py 
 ```
+## SWITCHING TO AMBER FF
+Amber requires a different labelling of the glycans compared to CHARMM-36 ff patch system.
 
+### Step 1: glycosylate the protein
+Starting from the original pdb structure, we attach the correct glycan to the N- sites (N139, N192 and N215) using [GLYCAM-WEB](https://glycam.org/gp/)
+The glycan string is: DManpa1-3[DManpa1-6]DManpb1-4DGlcpNAcb1-4DGlcpNAcb1-OH .
+This pdb is stored as [3s5y_amber.pdb](glycosylation/3s5y_amber.pdb).
+
+### Step 2: generate DGJ-specific forcefield
+    Generate the DGJ-specific ff files using antechamber and parmchk2.
+```bash
+    conda activate ace_software
+
+    cd DGJ/
+
+    antechamber -i DGJ_A_cgeneff.mol2 -fi mol2 -o dgj_amber.prepi -fo prepi -c bcc -nc 1 -rn DGJ -at gaff2
+    parmchk2 -i dgj_amber.prepi -f prepi -o dgj.frcmod 
+```    
+   The forcefield works for both DGJ_A and DGJ_B.
+
+### Step 3: fix output pdb and build the system for equilibration
+GLYCAM-WEB outputs a pdb where resids are reordered (chian A starts at 1 instead of 32, chain B at 391 instead of 32).
+To fix this issue and allow correct recognition of the N-glycosilated sites, run:
+
+```bash
+    conda activate ace_software
+
+    python functions/fix_glycam_pdb.py
+```
+After that it is possible to:
+```bash
+        conda activate ace_software 
+        jupyter notebook functions/mol_prep_amber.ipynb
+```
+
+From this point on, the steps are identical to the ones explained under the Tutorial section.
+
+*NOTA* al momento abbiamo provato a fare run senza glicani, per aggiungerli, lasciare la lista resnames_to_remove = [] vuota (seconda cella del notebook)
 
 ## Acknowledgements
 

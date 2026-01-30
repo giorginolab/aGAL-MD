@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH --time 24:00:00
+#SBATCH -A CNHPC_1571184
+#SBATCH --gres gpu:1
+#SBATCH -p boost_usr_prod
+
+# Activate your environment
+conda activate miniomm
+
+srun miniomm

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --time 24:00:00
-#SBATCH -A IscrC_aGAL1
+#SBATCH -A CNHPC_1571184
 #SBATCH --gres gpu:1
 #SBATCH -p boost_usr_prod
 

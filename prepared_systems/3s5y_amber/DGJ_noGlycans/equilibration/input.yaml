@@ -1,0 +1,15 @@
+barostat: true
+barostatconstratio: false
+boxsize:
+- 124.45899963378906
+- 144.51998901367188
+- 99.61000061035156
+coordinates: structure.pdb
+extforces: []
+minimize: 1000
+restart: true
+run: 50 ns
+structure: structure.crd
+thermostat: true
+thermostattemperature: 300
+velocities: 300
