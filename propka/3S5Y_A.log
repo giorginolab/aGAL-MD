@@ -1,0 +1,42 @@
+Missing atoms or failed protonation for ASN 139 A (AMD) -- please check the structure
+Group (AMD) for   876-  CG   139-ASN (A) [  40.315    2.741   40.710] C
+Expected 3 interaction atoms for acids, found:
+               877- ND2   139-ASN (A) [  40.638    3.168   41.925] N
+                 0- HD2   139-ASN (A) [  40.276    4.060   42.231] H
+Expected 1 interaction atoms for bases, found:
+               878- OD1   139-ASN (A) [  40.734    1.684   40.245] O
+Missing atoms or failed protonation for ASN 192 A (AMD) -- please check the structure
+Group (AMD) for  1289-  CG   192-ASN (A) [  56.202   -0.362   21.735] C
+Expected 3 interaction atoms for acids, found:
+              1290- ND2   192-ASN (A) [  56.538    0.634   20.924] N
+                 0- HD2   192-ASN (A) [  55.981    1.476   20.941] H
+Expected 1 interaction atoms for bases, found:
+              1291- OD1   192-ASN (A) [  56.810   -1.427   21.773] O
+Missing atoms or failed protonation for ASN 215 A (AMD) -- please check the structure
+Group (AMD) for  1496-  CG   215-ASN (A) [  61.780   14.465   34.184] C
+Expected 3 interaction atoms for acids, found:
+              1497- ND2   215-ASN (A) [  62.546   13.571   34.818] N
+                 0- HD2   215-ASN (A) [  62.183   13.114   35.643] H
+Expected 1 interaction atoms for bases, found:
+              1498- OD1   215-ASN (A) [  62.157   15.074   33.176] O
+Missing atoms or failed protonation for ASN 139 A (AMD) -- please check the structure
+Group (AMD) for   876-  CG   139-ASN (A) [  40.315    2.741   40.710] C
+Expected 3 interaction atoms for acids, found:
+               877- ND2   139-ASN (A) [  40.638    3.168   41.925] N
+                 0- HD2   139-ASN (A) [  40.276    4.060   42.231] H
+Expected 1 interaction atoms for bases, found:
+               878- OD1   139-ASN (A) [  40.734    1.684   40.245] O
+Missing atoms or failed protonation for ASN 192 A (AMD) -- please check the structure
+Group (AMD) for  1289-  CG   192-ASN (A) [  56.202   -0.362   21.735] C
+Expected 3 interaction atoms for acids, found:
+              1290- ND2   192-ASN (A) [  56.538    0.634   20.924] N
+                 0- HD2   192-ASN (A) [  55.981    1.476   20.941] H
+Expected 1 interaction atoms for bases, found:
+              1291- OD1   192-ASN (A) [  56.810   -1.427   21.773] O
+Missing atoms or failed protonation for ASN 215 A (AMD) -- please check the structure
+Group (AMD) for  1496-  CG   215-ASN (A) [  61.780   14.465   34.184] C
+Expected 3 interaction atoms for acids, found:
+              1497- ND2   215-ASN (A) [  62.546   13.571   34.818] N
+                 0- HD2   215-ASN (A) [  62.183   13.114   35.643] H
+Expected 1 interaction atoms for bases, found:
+              1498- OD1   215-ASN (A) [  62.157   15.074   33.176] O
