@@ -148,7 +148,7 @@ The report was conduced as part of the  PROPHECY-GlycoRare project, funded by Pa
 
 ## Mandatory notice
 
-Questo progetto (parte di PROPHECY-GlycoRare) è stato sviluppato da CNR-IBF nell’ambito
+Questo progetto (bando a cascata PROPHECY-GlycoRare di HEAL ITALIA) è stato sviluppato da CNR-IBF nell’ambito
 del progetto finanziato dall’Unione europea – (NextGenerationEU) – PNRR
 Missione 4, Componente 2, Investimento 1.3.
 
