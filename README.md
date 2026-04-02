@@ -153,5 +153,6 @@ del progetto finanziato dall’Unione europea – (NextGenerationEU) – PNRR
 Missione 4, Componente 2, Investimento 1.3.
 
 
+<img width="1600" height="140" alt="Stecca_4_Blu" src="https://github.com/user-attachments/assets/7af14ee6-0e67-4a55-8276-45e68d5415b7" />
 
     
